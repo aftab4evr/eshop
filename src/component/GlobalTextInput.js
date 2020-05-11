@@ -66,12 +66,14 @@ const styles = StyleSheet.create({
     textInputStyle: {
         alignSelf: "center",
         width: wp("90%"),
-        height: hp("8%"),
+        height: hp("6%"),
         borderWidth: 1,
         alignItems: "baseline",
         borderRadius: 5,
-        borderColor: 'rgb(191,4,23)',
-        backgroundColor: 'white'
+        borderColor: 'white',
+        backgroundColor: '#CCFFCC',
+        marginRight: wp("6%"),
+        fontSize: 19
     },
     ErrorView: {
         marginHorizontal: wp('3%'),

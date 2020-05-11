@@ -23,14 +23,12 @@ const { width, height } = Dimensions.get("window");
 
 
 const Authstack = createStackNavigator({
-
-
     Login: {
         screen: Login,
-        navigationOptions: ({ navigation }, props) => ({
-            header: null
-        })
+        navigationOptions: {
 
+            header: null
+        }
     },
 
     Otp: {
@@ -166,8 +164,6 @@ const NewStack = createStackNavigator({
 
 
 })
-
-
 
 const Switchnavigator = createSwitchNavigator({
 

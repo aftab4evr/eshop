@@ -8,32 +8,28 @@
 
 import React, { Component } from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+  StyleSheet
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
+  Colors
 } from 'react-native/Libraries/NewAppScreen';
+
 import CommonNavigator from './src/Router/Navigation'
 
 class App extends Component {
   render() {
     return (
-      <View>
-        <CommonNavigator />
-      </View>
+      <CommonNavigator />
     );
   }
-};
 
+};
+const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: Colors.lighter,
+  },
+
+});
 
 export default App;

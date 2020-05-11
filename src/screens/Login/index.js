@@ -214,6 +214,7 @@ const style = StyleSheet.create({
     fontWeight: '800',
     alignSelf: 'auto',
     marginLeft: wp('5%'),
+    marginTop: hp('1%'),
     marginBottom: wp('13%'),
   },
   TextInputMainContainer: {

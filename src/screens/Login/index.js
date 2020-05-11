@@ -136,12 +136,13 @@ const style = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: 'white',
+    marginTop: wp('18%'),
   },
 
   ImageStyle: {
     height: hp('40%'),
     width: wp('100%'),
-    marginTop: wp('23%'),
+    marginBottom: wp('10%'),
   },
   TextStyle: {
     fontSize: 20,

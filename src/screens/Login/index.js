@@ -34,19 +34,8 @@ class Login extends Component {
       isRemind: false,
       phone: '',
       phoneError: '',
-      countrycode: '+91',
-      modalVisibleCountry: false,
     };
   }
-  setModalData = (item) => {
-    console.log(item);
-    this.setState({
-      countryError: '',
-      colorchange: true,
-      countrycode: item.code,
-      modalVisibleCountry: !this.state.modalVisibleCountry,
-    });
-  };
 
   render() {
     return (
@@ -67,12 +56,7 @@ class Login extends Component {
                 <Text style={style.TextStyle}>Get started</Text>
               </View>
               <View style={style.TextInputMainContainer}>
-                <TouchableOpacity
-                  onPress={() =>
-                    this.setState({
-                      modalVisibleCountry: !this.state.modalVisibleCountry,
-                    })
-                  }
+                <View
                   style={{
                     marginLeft: wp('8%'),
                     marginRight: wp('4%'),
@@ -85,8 +69,8 @@ class Login extends Component {
                     width: wp('22%'),
                     backgroundColor: '#CCFFCC',
                   }}>
-                  <Text style={{}}>{this.state.countrycode}</Text>
-                </TouchableOpacity>
+                  <Text style={{}}>+91</Text>
+                </View>
                 <CustomTextInput
                   MyPlaceholder="Your phone number*"
                   textCon={{
@@ -133,65 +117,6 @@ class Login extends Component {
             </ScrollView>
           </SafeAreaView>
         </KeyboardAvoidingView>
-        <Modal
-          style={{height: height / 2}}
-          animationType="none"
-          transparent={true}
-          visible={this.state.modalVisibleCountry}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={style.ModalMainContainer}>
-            <View style={style.ModalStyle}>
-              <FlatList
-                data={CountryCode}
-                onRequestClose={() => console.log('modal has been closeds')}
-                renderItem={({item, index}) => (
-                  <View style={{width: wp('70%')}}>
-                    <TouchableOpacity
-                      onPress={() => this.setModalData(item)}
-                      style={style.FlatListStyle}>
-                      <View style={{width: wp('50%')}}>
-                        <Text style={{fontSize: 15, marginVertical: 10}}>
-                          {item.dialCode}
-                        </Text>
-                        <Text style={{fontSize: 15, marginVertical: 10}}>
-                          {item.code}
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                )}
-                keyExtractor={(item, index) => index.toString()}
-                ItemSeparatorComponent={() => {
-                  return (
-                    <View
-                      style={{
-                        height: 1,
-                        backgroundColor: 'grey',
-                        width: wp('70%'),
-                      }}
-                    />
-                  );
-                }}
-                CancelModal={() => this.setState({yearView: false})}
-              />
-              <TouchableOpacity
-                onPress={() =>
-                  this.setState({
-                    modalVisibleCountry: !this.state.modalVisibleCountry,
-                  })
-                }
-                style={{
-                  backgroundColor: 'green',
-                  width: wp('40%'),
-                  marginTop: hp('1%'),
-                }}>
-                <Text style={style.CancelButtonStyle}>{'Cancel'}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
       </View>
     );
   }
@@ -202,6 +127,7 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
+    backgroundColor: 'white',
   },
 
   ImageStyle: {
@@ -254,7 +180,7 @@ const style = StyleSheet.create({
     paddingVertical: 15,
     // borderRadius: hp('1%'),
     borderWidth: hp('.5%'),
-    borderColor: 'green',
+    // borderColor: 'green',
   },
   CancelButtonStyle: {
     alignSelf: 'center',

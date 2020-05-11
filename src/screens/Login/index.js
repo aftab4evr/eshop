@@ -4,11 +4,15 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
+  Dimensions,
   Image,
   TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Modal,
+  FlatList,
+  Alert,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -18,6 +22,8 @@ import {CustomTextInput} from '../../component/GlobalTextInput';
 import {SubmitButton} from '../../component/Button';
 import {SubmitWhatsapButton} from '../../component/Button';
 import icon from './icons';
+import {CountryCode} from './Constant';
+const {width, height} = Dimensions.get('window');
 
 class Login extends Component {
   constructor(props) {
@@ -28,8 +34,19 @@ class Login extends Component {
       isRemind: false,
       phone: '',
       phoneError: '',
+      countrycode: '+91',
+      modalVisibleCountry: false,
     };
   }
+  setModalData = (item) => {
+    console.log(item);
+    this.setState({
+      countryError: '',
+      colorchange: true,
+      countrycode: item.code,
+      modalVisibleCountry: !this.state.modalVisibleCountry,
+    });
+  };
 
   render() {
     return (
@@ -50,42 +67,26 @@ class Login extends Component {
                 <Text style={style.TextStyle}>Get started</Text>
               </View>
               <View style={style.TextInputMainContainer}>
-                <View
+                <TouchableOpacity
+                  onPress={() =>
+                    this.setState({
+                      modalVisibleCountry: !this.state.modalVisibleCountry,
+                    })
+                  }
                   style={{
-                    marginLeft: wp('6%'),
+                    marginLeft: wp('8%'),
                     marginRight: wp('4%'),
                     height: hp('6%'),
-                    borderRadius: 5,
-                    borderColor: 'white',
-                    backgroundColor: '#CCFFCC',
-                    width: wp('17%'),
+                    borderWidth: 1,
                     alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: 5,
+                    borderColor: 'green',
+                    width: wp('22%'),
+                    backgroundColor: '#CCFFCC',
                   }}>
-                  <CustomTextInput
-                    MyPlaceholder="+91"
-                    textCon={{
-                      borderBottomColor: this.state.activefirstnameBorderColor
-                        ? 'red'
-                        : 'white',
-                    }}
-                    textInputStyle={{
-                      width: wp('10%'),
-                      height: hp('6%'),
-                    }}
-                    value={this.state.phoneNumber}
-                    keyboardType="number-pad"
-                    //   onChangeText={(text) =>
-                    //     this.handlevalidate(text, 'phoneNumber')
-                    //   }
-                    // ErrorText={this.state.phoneNumberError}
-                    returnKeyType="next"
-                    InputRef={(input) => (this.phoneNumber = input)}
-                    onSubmitEditing={() => {
-                      this.name.focus();
-                    }}
-                    maxLength={10}
-                  />
-                </View>
+                  <Text style={{}}>{this.state.countrycode}</Text>
+                </TouchableOpacity>
                 <CustomTextInput
                   MyPlaceholder="Your phone number*"
                   textCon={{
@@ -95,7 +96,7 @@ class Login extends Component {
                   }}
                   textInputStyle={{
                     paddingLeft: 39,
-                    width: wp('70%'),
+                    width: wp('60%'),
                     height: hp('6%'),
                   }}
                   value={this.state.phoneNumber}
@@ -132,6 +133,65 @@ class Login extends Component {
             </ScrollView>
           </SafeAreaView>
         </KeyboardAvoidingView>
+        <Modal
+          style={{height: height / 2}}
+          animationType="none"
+          transparent={true}
+          visible={this.state.modalVisibleCountry}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}>
+          <View style={style.ModalMainContainer}>
+            <View style={style.ModalStyle}>
+              <FlatList
+                data={CountryCode}
+                onRequestClose={() => console.log('modal has been closeds')}
+                renderItem={({item, index}) => (
+                  <View style={{width: wp('70%')}}>
+                    <TouchableOpacity
+                      onPress={() => this.setModalData(item)}
+                      style={style.FlatListStyle}>
+                      <View style={{width: wp('50%')}}>
+                        <Text style={{fontSize: 15, marginVertical: 10}}>
+                          {item.dialCode}
+                        </Text>
+                        <Text style={{fontSize: 15, marginVertical: 10}}>
+                          {item.code}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                )}
+                keyExtractor={(item, index) => index.toString()}
+                ItemSeparatorComponent={() => {
+                  return (
+                    <View
+                      style={{
+                        height: 1,
+                        backgroundColor: 'grey',
+                        width: wp('70%'),
+                      }}
+                    />
+                  );
+                }}
+                CancelModal={() => this.setState({yearView: false})}
+              />
+              <TouchableOpacity
+                onPress={() =>
+                  this.setState({
+                    modalVisibleCountry: !this.state.modalVisibleCountry,
+                  })
+                }
+                style={{
+                  backgroundColor: 'green',
+                  width: wp('40%'),
+                  marginTop: hp('1%'),
+                }}>
+                <Text style={style.CancelButtonStyle}>{'Cancel'}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -177,6 +237,30 @@ const style = StyleSheet.create({
     fontSize: 15,
     marginLeft: wp('7%'),
     marginBottom: hp('2%'),
+  },
+  ModalMainContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(122, 122, 122,0.5)',
+    justifyContent: 'center',
+  },
+  ModalStyle: {
+    height: height / 2,
+    width: wp('80%'),
+    justifyContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    paddingVertical: 15,
+    // borderRadius: hp('1%'),
+    borderWidth: hp('.5%'),
+    borderColor: 'green',
+  },
+  CancelButtonStyle: {
+    alignSelf: 'center',
+    marginVertical: 10,
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'white',
   },
 });
 export default Login;

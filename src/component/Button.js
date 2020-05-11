@@ -7,10 +7,10 @@ import {
 } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 
 export const SubmitButton = (props) => {
-    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('45%') : wp('65%')
+    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('40%') : wp('60%')
     return (
         <TouchableOpacity
             disabled={props.disabled}
@@ -19,8 +19,6 @@ export const SubmitButton = (props) => {
             {
                 height: standardSize ? standardSize / 5.4 : wp('12%'),
                 width: standardSize ? standardSize : wp('12%'),
-
-
             }, props.MainButtonContainer
             ]}
         >
@@ -33,9 +31,6 @@ export const SubmitButton = (props) => {
                 {props.ButtonName ? props.ButtonName : 'SUBMIT'}
             </Text>
         </TouchableOpacity>
-
-
-
     )
 }
 export const SubmitWhatsapButton = (props) => {
@@ -48,12 +43,9 @@ export const SubmitWhatsapButton = (props) => {
             {
                 height: standardSize ? standardSize / 5.4 : wp('12%'),
                 width: standardSize ? standardSize : wp('12%'),
-
-
             }, props.MainButtonContainer
             ]}
         >
-
             <Text style={[styles.whatsapButtonText,
             {
                 fontSize: standardSize ? standardSize / 15 : wp('6%'),
@@ -62,9 +54,6 @@ export const SubmitWhatsapButton = (props) => {
                 {props.ButtonName ? props.ButtonName : 'SUBMIT'}
             </Text>
         </TouchableOpacity>
-
-
-
     )
 }
 
@@ -79,13 +68,10 @@ export const SkipButton = (props) => {
             {
                 height: standardSize ? standardSize / 5.4 : wp('12%'),
                 width: standardSize ? standardSize : wp('72%'),
-
-
             },
             ]}
         >
-
-            <Text style={[styles.ButtonText,
+        <Text style={[styles.ButtonText,
             {
                 fontSize: standardSize ? standardSize / 15 : wp('2%'),
             },
@@ -93,9 +79,6 @@ export const SkipButton = (props) => {
                 {props.ButtonName ? props.ButtonName : 'SUBMIT'}
             </Text>
         </TouchableOpacity>
-
-
-
     )
 }
 
@@ -109,12 +92,9 @@ export const UpdateButton = (props) => {
             {
                 height: wp('12%'),
                 width: wp('30%'),
-
-
             },
             ]}
         >
-
             <Text style={[styles.ButtonText,
             {
                 fontSize: wp('4%'),

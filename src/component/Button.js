@@ -10,7 +10,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import LinearGradient from 'react-native-linear-gradient'
 
 export const SubmitButton = (props) => {
-    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('40%') : wp('60%')
+    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('45%') : wp('65%')
     return (
         <TouchableOpacity
             disabled={props.disabled}

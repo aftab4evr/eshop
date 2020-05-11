@@ -21,43 +21,48 @@ class Home extends Component {
       story: [
         {
           avatar:
-            'https://pbs.twimg.com/profile_images/378800000100729128/b544463a6b0232b20e10751abad254b9.jpeg',
+            'https://cdn.britannica.com/13/146313-050-DD9AAC27/India-War-Memorial-arch-New-Delhi-Sir.jpg',
           name: 'New Delhi',
           id: 1,
         },
         {
-          avatar: 'https://wallpaperaccess.com/full/1331691.jpg',
+          avatar:
+            'https://static.toiimg.com/thumb/msid-53891735,width-748,height-499,resizemode=4,imgsize-126102/The-Gateway-of-India.jpg',
           name: 'Mumbai',
           id: 2,
         },
         {
-          avatar:
-            'https://is5-ssl.mzstatic.com/image/thumb/Purple118/v4/aa/b8/46/aab8462a-ff40-6dd4-236f-96033f0db41e/source/512x512bb.jpg',
+          avatar: 'https://www.holidify.com/images/bgImages/KOLKATA.jpg',
           name: 'Kolkata',
           id: 2,
         },
         {
           avatar:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          name: 'Aftab',
+            'https://www.orangesmile.com/common/img_cities_original/chennai--2103041-2.jpg',
+          name: 'Chennai',
           id: 2,
         },
         {
           avatar:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          name: 'Aftab',
+            'https://cdn.britannica.com/13/146313-050-DD9AAC27/India-War-Memorial-arch-New-Delhi-Sir.jpg',
+          name: 'New Delhi',
+          id: 1,
+        },
+        {
+          avatar:
+            'https://static.toiimg.com/thumb/msid-53891735,width-748,height-499,resizemode=4,imgsize-126102/The-Gateway-of-India.jpg',
+          name: 'Mumbai',
+          id: 2,
+        },
+        {
+          avatar: 'https://www.holidify.com/images/bgImages/KOLKATA.jpg',
+          name: 'Kolkata',
           id: 2,
         },
         {
           avatar:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          name: 'Aftab',
-          id: 2,
-        },
-        {
-          avatar:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          name: 'Aftab',
+            'https://www.orangesmile.com/common/img_cities_original/chennai--2103041-2.jpg',
+          name: 'Chennai',
           id: 2,
         },
       ],
@@ -95,11 +100,16 @@ class Home extends Component {
             <View
               style={{
                 marginLeft: wp('2%'),
-                width: wp('90%'),
+                width: wp('100%'),
                 height: hp('18%'),
               }}>
               <View style={{flexDirection: 'row', width: wp('90%')}}>
-                <Text style={{fontWeight: '700', marginVertical: hp('1%')}}>
+                <Text
+                  style={{
+                    fontWeight: '700',
+                    marginVertical: hp('1%'),
+                    fontSize: 18,
+                  }}>
                   Serving Areas
                 </Text>
               </View>
@@ -140,11 +150,11 @@ const style = StyleSheet.create({
     width: wp('100%'),
   },
   StoryImageStyle: {
-    marginVertical: wp('2%'),
+    // marginVertical: wp('2%'),
     width: wp('20%'),
     height: hp('10%'),
     borderRadius: 400 / 2,
-    borderWidth: 2,
+    borderWidth: 1,
   },
 });
 export default Home;

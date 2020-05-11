@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -18,12 +18,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {CustomTextInput} from '../../component/GlobalTextInput';
-import {SubmitButton} from '../../component/Button';
-import {SubmitWhatsapButton} from '../../component/Button';
+import { CustomTextInput } from '../../component/GlobalTextInput';
+import { SubmitButton } from '../../component/Button';
+import { SubmitWhatsapButton } from '../../component/Button';
 import icon from './icons';
-import {CountryCode} from './Constant';
-const {width, height} = Dimensions.get('window');
+import { CountryCode } from './Constant';
+const { width, height } = Dimensions.get('window');
 
 class Login extends Component {
   constructor(props) {
@@ -60,7 +60,7 @@ class Login extends Component {
               <View style={style.ImageView}>
                 <Image
                   style={style.ImageStyle}
-                  source={{uri: this.state.photo}}
+                  source={{ uri: this.state.photo }}
                 />
               </View>
               <View>
@@ -81,9 +81,9 @@ class Login extends Component {
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderRadius: 5,
-                    borderColor: 'green',
+                    borderColor: 'white',
                     width: wp('22%'),
-                    backgroundColor: '#CCFFCC',
+                    backgroundColor: 'white',
                   }}>
                   <Text style={{}}>{this.state.countrycode}</Text>
                 </TouchableOpacity>
@@ -118,23 +118,33 @@ class Login extends Component {
                   We will send you OTP on this number
                 </Text>
               </View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{ flexDirection: 'row' }}>
                 <SubmitButton
                   submitOnpress={() => this.props.navigation.navigate('Login')}
                   Size={'small'}
                   ButtonName="OTP on SMS"
                 />
-                <SubmitWhatsapButton
-                  submitOnpress={() => this.props.navigation.navigate('Login')}
-                  Size={'small'}
-                  ButtonName="Get OTP on Whatsapp"
-                />
+                <TouchableOpacity
+                  onPress={() => { }}
+                  style={style.GooglePlusStyle} activeOpacity={0.5}>
+
+
+                  <Text style={style.WhatsapTextStyle}>Get OTP on WhatsApp
+                  <View style={style.SeparatorLine} />
+                    <Image
+                      source={icon.whatsap}
+                      style={style.ImageIconStyle}
+
+                    />
+                  </Text>
+                </TouchableOpacity>
+
               </View>
             </ScrollView>
           </SafeAreaView>
         </KeyboardAvoidingView>
         <Modal
-          style={{height: height / 2}}
+          style={{ height: height / 2 }}
           animationType="none"
           transparent={true}
           visible={this.state.modalVisibleCountry}
@@ -146,16 +156,16 @@ class Login extends Component {
               <FlatList
                 data={CountryCode}
                 onRequestClose={() => console.log('modal has been closeds')}
-                renderItem={({item, index}) => (
-                  <View style={{width: wp('70%')}}>
+                renderItem={({ item, index }) => (
+                  <View style={{ width: wp('70%') }}>
                     <TouchableOpacity
                       onPress={() => this.setModalData(item)}
                       style={style.FlatListStyle}>
-                      <View style={{width: wp('50%')}}>
-                        <Text style={{fontSize: 15, marginVertical: 10}}>
+                      <View style={{ width: wp('50%') }}>
+                        <Text style={{ fontSize: 15, marginVertical: 10 }}>
                           {item.dialCode}
                         </Text>
-                        <Text style={{fontSize: 15, marginVertical: 10}}>
+                        <Text style={{ fontSize: 15, marginVertical: 10 }}>
                           {item.code}
                         </Text>
                       </View>
@@ -174,7 +184,7 @@ class Login extends Component {
                     />
                   );
                 }}
-                CancelModal={() => this.setState({yearView: false})}
+                CancelModal={() => this.setState({ yearView: false })}
               />
               <TouchableOpacity
                 onPress={() =>
@@ -254,7 +264,7 @@ const style = StyleSheet.create({
     paddingVertical: 15,
     // borderRadius: hp('1%'),
     borderWidth: hp('.5%'),
-    borderColor: 'green',
+    borderColor: '#05CB18',
   },
   CancelButtonStyle: {
     alignSelf: 'center',
@@ -262,6 +272,39 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
+  },
+  GooglePlusStyle: {
+    flexDirection: 'row',
+    backgroundColor: '#05CB18',
+    borderWidth: 1,
+    borderColor: '#05CB18',
+    height: wp('10%'),
+    width: wp('50%'),
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 0,
+    marginLeft: wp('2%'),
+  },
+  ImageIconStyle: {
+    padding: 10,
+    margin: 5,
+    height: 45,
+    width: 40,
+    marginRight: wp('-6%'),
+    resizeMode: 'stretch',
+  },
+  SeparatorLine: {
+    backgroundColor: '#fff',
+    height: 40,
+  },
+  WhatsapTextStyle: {
+    color: '#fff',
+    marginBottom: 16,
+    fontSize: 15,
+    marginRight: 20,
+    fontWeight: '700',
+    marginLeft: wp('3%'),
   },
 });
 export default Login;

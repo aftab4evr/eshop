@@ -1,7 +1,7 @@
 const path = '../../assets/images/';
-const ext = '.png';
+const ext = 'jpeg';
 
 export default Icons = {
-  whatsap: require(`${path}whatsap${ext}`),
   loginIcon: require(`${path}icon.jpeg`),
+  storenearme: require(`${path}storenearme.png`),
 };

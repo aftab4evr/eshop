@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, Dimensions, TextInput } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, Dimensions, TextInput} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 export const CustomTextInput = (props) => {
   return (
     <View
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: 'baseline',
     borderRadius: 5,
-    borderColor: 'white',
+    borderColor: 'black',
     backgroundColor: 'white',
     marginRight: wp('6%'),
     fontSize: 19,

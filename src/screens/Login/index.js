@@ -46,12 +46,9 @@ class Login extends Component {
           enabled>
           <SafeAreaView>
             <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={style.ImageView}>
-                <Image
-                  style={style.ImageStyle}
-                  // source={{uri: this.state.photo}}
-                  source={icon.loginIcon}
-                />
+              <View style={{alignItems: 'center'}}>
+                <Image style={style.StoreStyle} source={icon.storenearme} />
+                <Image style={style.ImageStyle} source={icon.loginIcon} />
               </View>
               <View>
                 <Text style={style.TextStyle}>Get started</Text>
@@ -66,9 +63,9 @@ class Login extends Component {
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderRadius: 5,
-                    borderColor: 'white',
+                    borderColor: 'black',
                     width: wp('22%'),
-                    backgroundColor: 'white',
+                    // backgroundColor: 'white',
                   }}>
                   <Text style={{}}>+91</Text>
                 </View>
@@ -103,7 +100,7 @@ class Login extends Component {
                   We will send you OTP on this number
                 </Text>
               </View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <SubmitButton
                   submitOnpress={() =>
                     this.props.navigation.navigate('HomeStack')
@@ -118,7 +115,6 @@ class Login extends Component {
                   <Text style={style.WhatsapTextStyle}>
                     Get OTP on WhatsApp
                     <View style={style.SeparatorLine} />
-                    <Image source={icon.whatsap} style={style.ImageIconStyle} />
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -136,21 +132,21 @@ const style = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: 'white',
-    marginTop: wp('18%'),
+    // marginTop: wp('18%'),
   },
 
   ImageStyle: {
     height: hp('40%'),
     width: wp('100%'),
-    marginBottom: wp('10%'),
+    // marginBottom: wp('10%'),
   },
   TextStyle: {
     fontSize: 20,
     fontWeight: '800',
     alignSelf: 'auto',
     marginLeft: wp('5%'),
-    marginTop: hp('1%'),
-    marginBottom: wp('13%'),
+    // marginTop: hp('1%'),
+    marginBottom: wp('12%'),
   },
   TextInputMainContainer: {
     justifyContent: 'space-between',
@@ -204,20 +200,11 @@ const style = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#05CB18',
     height: wp('10%'),
-    width: wp('50%'),
+    width: wp('46%'),
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 0,
     marginLeft: wp('2%'),
-  },
-  ImageIconStyle: {
-    padding: 10,
-    margin: 5,
-    height: 50,
-    width: 40,
-    marginRight: wp('-6%'),
-    resizeMode: 'stretch',
   },
   SeparatorLine: {
     backgroundColor: '#fff',
@@ -226,9 +213,9 @@ const style = StyleSheet.create({
   WhatsapTextStyle: {
     color: '#fff',
     marginBottom: 16,
-    fontSize: 15,
+    fontSize: 14,
     marginRight: 20,
-    fontWeight: '700',
+    fontWeight: '600',
     marginLeft: wp('3%'),
   },
 });

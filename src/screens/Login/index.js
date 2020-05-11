@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -18,12 +18,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { CustomTextInput } from '../../component/GlobalTextInput';
-import { SubmitButton } from '../../component/Button';
-import { SubmitWhatsapButton } from '../../component/Button';
+import {CustomTextInput} from '../../component/GlobalTextInput';
+import {SubmitButton} from '../../component/Button';
+import {SubmitWhatsapButton} from '../../component/Button';
 import icon from './icons';
-import { CountryCode } from './Constant';
-const { width, height } = Dimensions.get('window');
+import {CountryCode} from './Constant';
+const {width, height} = Dimensions.get('window');
 
 class Login extends Component {
   constructor(props) {
@@ -49,7 +49,8 @@ class Login extends Component {
               <View style={style.ImageView}>
                 <Image
                   style={style.ImageStyle}
-                  source={{ uri: this.state.photo }}
+                  // source={{uri: this.state.photo}}
+                  source={icon.loginIcon}
                 />
               </View>
               <View>
@@ -102,90 +103,28 @@ class Login extends Component {
                   We will send you OTP on this number
                 </Text>
               </View>
-              <View style={{ flexDirection: 'row' }}>
+              <View style={{flexDirection: 'row'}}>
                 <SubmitButton
-                  submitOnpress={() => this.props.navigation.navigate('HomeStack')}
+                  submitOnpress={() =>
+                    this.props.navigation.navigate('HomeStack')
+                  }
                   Size={'small'}
                   ButtonName="OTP on SMS"
                 />
                 <TouchableOpacity
-                  onPress={() => { }}
-                  style={style.GooglePlusStyle} activeOpacity={0.5}>
-
-
-                  <Text style={style.WhatsapTextStyle}>Get OTP on WhatsApp
-                  <View style={style.SeparatorLine} />
-                    <Image
-                      source={icon.whatsap}
-                      style={style.ImageIconStyle}
-
-                    />
+                  onPress={() => {}}
+                  style={style.GooglePlusStyle}
+                  activeOpacity={0.5}>
+                  <Text style={style.WhatsapTextStyle}>
+                    Get OTP on WhatsApp
+                    <View style={style.SeparatorLine} />
+                    <Image source={icon.whatsap} style={style.ImageIconStyle} />
                   </Text>
                 </TouchableOpacity>
-
               </View>
             </ScrollView>
           </SafeAreaView>
         </KeyboardAvoidingView>
-        <Modal
-          style={{ height: height / 2 }}
-          animationType="none"
-          transparent={true}
-          visible={this.state.modalVisibleCountry}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={style.ModalMainContainer}>
-            <View style={style.ModalStyle}>
-              <FlatList
-                data={CountryCode}
-                onRequestClose={() => console.log('modal has been closeds')}
-                renderItem={({ item, index }) => (
-                  <View style={{ width: wp('70%') }}>
-                    <TouchableOpacity
-                      onPress={() => this.setModalData(item)}
-                      style={style.FlatListStyle}>
-                      <View style={{ width: wp('50%') }}>
-                        <Text style={{ fontSize: 15, marginVertical: 10 }}>
-                          {item.dialCode}
-                        </Text>
-                        <Text style={{ fontSize: 15, marginVertical: 10 }}>
-                          {item.code}
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                )}
-                keyExtractor={(item, index) => index.toString()}
-                ItemSeparatorComponent={() => {
-                  return (
-                    <View
-                      style={{
-                        height: 1,
-                        backgroundColor: 'grey',
-                        width: wp('70%'),
-                      }}
-                    />
-                  );
-                }}
-                CancelModal={() => this.setState({ yearView: false })}
-              />
-              <TouchableOpacity
-                onPress={() =>
-                  this.setState({
-                    modalVisibleCountry: !this.state.modalVisibleCountry,
-                  })
-                }
-                style={{
-                  backgroundColor: 'green',
-                  width: wp('40%'),
-                  marginTop: hp('1%'),
-                }}>
-                <Text style={style.CancelButtonStyle}>{'Cancel'}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
       </View>
     );
   }

@@ -34,19 +34,8 @@ class Login extends Component {
       isRemind: false,
       phone: '',
       phoneError: '',
-      countrycode: '+91',
-      modalVisibleCountry: false,
     };
   }
-  setModalData = (item) => {
-    console.log(item);
-    this.setState({
-      countryError: '',
-      colorchange: true,
-      countrycode: item.code,
-      modalVisibleCountry: !this.state.modalVisibleCountry,
-    });
-  };
 
   render() {
     return (
@@ -67,12 +56,7 @@ class Login extends Component {
                 <Text style={style.TextStyle}>Get started</Text>
               </View>
               <View style={style.TextInputMainContainer}>
-                <TouchableOpacity
-                  onPress={() =>
-                    this.setState({
-                      modalVisibleCountry: !this.state.modalVisibleCountry,
-                    })
-                  }
+                <View
                   style={{
                     marginLeft: wp('8%'),
                     marginRight: wp('4%'),
@@ -85,8 +69,8 @@ class Login extends Component {
                     width: wp('22%'),
                     backgroundColor: 'white',
                   }}>
-                  <Text style={{}}>{this.state.countrycode}</Text>
-                </TouchableOpacity>
+                  <Text style={{}}>+91</Text>
+                </View>
                 <CustomTextInput
                   MyPlaceholder="Your phone number*"
                   textCon={{
@@ -120,7 +104,7 @@ class Login extends Component {
               </View>
               <View style={{ flexDirection: 'row' }}>
                 <SubmitButton
-                  submitOnpress={() => this.props.navigation.navigate('Login')}
+                  submitOnpress={() => this.props.navigation.navigate('HomeStack')}
                   Size={'small'}
                   ButtonName="OTP on SMS"
                 />
@@ -212,6 +196,7 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
+    backgroundColor: 'white',
   },
 
   ImageStyle: {
@@ -289,7 +274,7 @@ const style = StyleSheet.create({
   ImageIconStyle: {
     padding: 10,
     margin: 5,
-    height: 45,
+    height: 50,
     width: 40,
     marginRight: wp('-6%'),
     resizeMode: 'stretch',

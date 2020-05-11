@@ -10,7 +10,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import LinearGradient from 'react-native-linear-gradient'
 
 export const SubmitButton = (props) => {
-    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('60%') : wp('50%')
+    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('40%') : wp('60%')
     return (
         <TouchableOpacity
             disabled={props.disabled}
@@ -18,7 +18,7 @@ export const SubmitButton = (props) => {
             style={[styles.MainButtonContainer,
             {
                 height: standardSize ? standardSize / 5.4 : wp('12%'),
-                width: standardSize ? standardSize : wp('72%'),
+                width: standardSize ? standardSize : wp('12%'),
 
 
             }, props.MainButtonContainer
@@ -26,6 +26,35 @@ export const SubmitButton = (props) => {
         >
 
             <Text style={[styles.ButtonText,
+            {
+                fontSize: standardSize ? standardSize / 15 : wp('6%'),
+            }, props.ButtonText
+            ]}>
+                {props.ButtonName ? props.ButtonName : 'SUBMIT'}
+            </Text>
+        </TouchableOpacity>
+
+
+
+    )
+}
+export const SubmitWhatsapButton = (props) => {
+    let standardSize = props.Size === "medium" ? wp('83%') : props.Size === "small" ? wp('40%') : wp('60%')
+    return (
+        <TouchableOpacity
+            disabled={props.disabled}
+            onPress={props.submitOnpress}
+            style={[styles.WhatsapButtonContainer,
+            {
+                height: standardSize ? standardSize / 5.4 : wp('12%'),
+                width: standardSize ? standardSize : wp('12%'),
+
+
+            }, props.MainButtonContainer
+            ]}
+        >
+
+            <Text style={[styles.whatsapButtonText,
             {
                 fontSize: standardSize ? standardSize / 15 : wp('6%'),
             }, props.ButtonText
@@ -152,22 +181,39 @@ export const HomeView = (props) => {
 const styles = StyleSheet.create({
 
     MainButtonContainer: {
-        height: wp('12%'),
-        width: wp('30%'),
-        backgroundColor: 'rgb(191,4,23)',
+        height: wp('2%'),
+        width: wp('5%'),
+        backgroundColor: '#FFFFFF',
+        borderColor: 'green',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 25,
-        marginVertical: wp('5%'),
-        alignSelf: 'center',
+        borderWidth: 1,
+        marginLeft: wp('6%'),
+
+    },
+    WhatsapButtonContainer: {
+        height: wp('2%'),
+        width: wp('5%'),
+        backgroundColor: 'green',
+        borderColor: 'green',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        marginLeft: wp('6%'),
+
     },
 
     ButtonText: {
 
         fontWeight: '700',
-        color: '#ffffff',
+        color: 'green',
 
     },
 
+    whatsapButtonText:{
 
+    fontWeight: '700',
+        color: '#FFFFFF',
+
+},
 })

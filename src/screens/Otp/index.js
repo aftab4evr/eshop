@@ -129,9 +129,10 @@ class Otp extends Component {
                                 <View style={style.otpInputView}>
                                     <TextInput
                                         style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP1BorderError ? "red" : "lightgrey", }]}
+                                        autoFocus={true}
                                         maxLength={1}
                                         ref={(input) => { this.phoneOTP1 = input; }}
-                                        keyboardType="number-pad"
+                                        keyboardType="numeric"
                                         returnKeyType="next"
                                         onChangeText={(text) => this.handleInput(text, 'phoneOTP', '1', this.phoneOTP1, this.phoneOTP2)}
                                         onSubmitEditing={() => { this.phoneOTP2.focus(); }}
@@ -140,8 +141,9 @@ class Otp extends Component {
 
                                     <TextInput
                                         style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP2BorderError ? "red" : "lightgrey", }]}
+                                        autoFocus={true}
                                         maxLength={1}
-                                        keyboardType="number-pad"
+                                        keyboardType="numeric"
                                         onChangeText={(text) => this.handleInput(text, 'phoneOTP', '2', this.phoneOTP1, this.phoneOTP3)}
                                         onSubmitEditing={() => { this.phoneOTP3.focus(); }}
                                         ref={(input) => { this.phoneOTP2 = input; }}
@@ -152,8 +154,9 @@ class Otp extends Component {
 
                                     <TextInput
                                         style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP3BorderError ? "red" : "lightgrey", }]}
+                                        autoFocus={true}
                                         maxLength={1}
-                                        keyboardType="number-pad"
+                                        keyboardType="numeric"
                                         onChangeText={(text) => this.handleInput(text, 'phoneOTP', '3', this.phoneOTP2, this.phoneOTP4)}
                                         onSubmitEditing={() => { this.phoneOTP4.focus(); }}
                                         ref={(input) => { this.phoneOTP3 = input; }}
@@ -164,8 +167,9 @@ class Otp extends Component {
 
                                     <TextInput
                                         style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP4BorderError ? "red" : "lightgrey", }]}
+                                        autoFocus={true}
                                         maxLength={1}
-                                        keyboardType="number-pad"
+                                        keyboardType="numeric"
                                         onChangeText={(text) => this.handleInput(text, 'phoneOTP', '4', this.phoneOTP3, this.phoneOTP4)}
                                         ref={(input) => { this.phoneOTP4 = input; }}
                                         ErrorBorder={this.state.activephoneOTP4BorderError}

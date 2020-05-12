@@ -72,54 +72,8 @@ class Otp extends Component {
     render() {
         return (
             <View style={style.container}>
-
                 <View style={{ alignItems: "center" }}>
-                    <Modal
-                        transparent={true}
-                        visible={this.state.modalVisible}
-                    >
-                        <View style={{ alignItems: "center", flex: 1, backgroundColor: 'rgba(49,176,249,0.8)', justifyContent: 'center' }}>
-
-                            <View style={{
-                                borderRadius: 8,
-                                marginTop: hp("35%"),
-                                justifyContent: "center",
-                                alignItems: "center",
-                                alignSelf: 'center',
-                                width: wp("60%"),
-                                backgroundColor: "white",
-                                height: hp("25%"),
-                                marginBottom: hp("30%")
-
-                            }}>
-                                <View style={style.crossView}>
-                                    <TouchableOpacity onPress={() => this.setState({ modalVisible: !this.state.modalVisible })}>
-                                        <Image source={Icons.crossicon} />
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{ width: wp("60%") }}>
-
-                                    <Text
-                                        style={{
-                                            fontSize: 15,
-                                            marginBottom: hp("13%"),
-                                            marginHorizontal: wp('8%'),
-                                            marginVertical: hp('-8%'),
-                                            alignSelf: 'center',
-                                            marginLeft: wp('7%')
-
-
-                                        }}
-                                    >
-                                        {this.state.message}
-                                    </Text>
-                                </View>
-
-                            </View>
-                        </View>
-                    </Modal>
-
-                    <SafeAreaView >
+                        <SafeAreaView >
                         <KeyboardAvoidingView style={style.container1} behavior={Platform.OS === 'ios' ? "padding" : null} enabled>
                             <ScrollView showsVerticalScrollIndicator={false}>
                                 <View>
@@ -216,11 +170,11 @@ class Otp extends Component {
                 </View >
             </View>
 
-
-
         )
     }
 }
+
+
 const style = StyleSheet.create({
     container1: {
         flex: 1,
@@ -239,7 +193,8 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-        backgroundColor: "white"
+        backgroundColor: "white",
+        // marginTop: wp('18%'),
 
     },
     otpImageView: {

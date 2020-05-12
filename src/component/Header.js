@@ -19,7 +19,7 @@ export const CustomHeader = (props) => {
   return (
     <View style={[styles.MainContainer, {}]}>
       <LinearGradient
-        colors={['#CCCC00', 'green']}
+        colors={['white', 'white']}
         style={styles.HomeHeaderBackgroundStyle}>
         <View
           style={{

@@ -11,14 +11,14 @@ import {
   KeyboardAvoidingView,
   Dimensions,
 } from 'react-native';
-import React, {Component, useState} from 'react';
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import React, { Component, useState } from 'react';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
 } from 'react-navigation-tabs';
-import {CustomHeader} from '../component/Header';
+import { CustomHeader } from '../component/Header';
 
 import Login from '../screens/Login/index';
 import Otp from '../screens/Otp/index';
@@ -31,45 +31,48 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-import NavIcons, {IconComponent} from './NavigationIcons';
+import NavIcons, { IconComponent } from './NavigationIcons';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const Authstack = createStackNavigator(
-  {
-    Login: {
-      screen: Login,
-      navigationOptions: {
-        header: null,
-      },
-    },
-    Otp: {
-      screen: Otp,
-      navigationOptions: ({navigation}, props) => ({
-        header: (
-          <CustomHeader
-            navigation={navigation}
-            {...props}
-            back={NavIcons.backarrow}
-            Title="OTP"
-            backicon={true}
-            goback={() => navigation.goBack()}
-          />
-        ),
-      }),
+const Authstack = createStackNavigator({
+
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      header: null,
     },
   },
-  {
-    defaultNavigationOptions: ({navigation}) => ({
-      headerStyle: {},
-    }),
+
+  Otp: {
+    screen: Otp,
+    navigationOptions: ({ navigation }, props) => ({
+
+      header: <CustomHeader
+        Size={"medium"}
+        navigation={navigation}
+        {...props}
+        backicon={NavIcons.backicon}
+        Title="OTP"
+        backicon={true}
+        goback={() => navigation.goBack()}
+      />
+
+    })
+
   },
-);
+
+  // {
+  //   defaultNavigationOptions: ({ navigation }) => ({
+  //     headerStyle: {},
+  //   }),
+  // },
+});
 
 const Homestack = createStackNavigator({
   Home: {
     screen: Home,
-    navigationOptions: ({navigation}, props) => ({
+    navigationOptions: ({ navigation }, props) => ({
       header: null,
     }),
   },
@@ -78,7 +81,7 @@ const Homestack = createStackNavigator({
 const ShareStack = createStackNavigator({
   Share: {
     screen: Share,
-    navigationOptions: ({navigation}, props) => ({
+    navigationOptions: ({ navigation }, props) => ({
       header: null,
     }),
   },
@@ -87,7 +90,7 @@ const ShareStack = createStackNavigator({
 const AboutStack = createStackNavigator({
   AboutScreen: {
     screen: AboutUs,
-    navigationOptions: ({navigation}, props) => ({
+    navigationOptions: ({ navigation }, props) => ({
       header: null,
     }),
   },
@@ -97,11 +100,11 @@ const bottomTabNavigator = createBottomTabNavigator(
   {
     HomeStack: {
       screen: Homestack,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: ({ navigation }) => ({
         tabBarLabel: 'Home',
         header: null,
         gesturesEnabled: false,
-        tabBarIcon: ({focused, tintColor}) => (
+        tabBarIcon: ({ focused, tintColor }) => (
           <IconComponent
             source={focused ? NavIcons.homeSelect : NavIcons.home}
           />
@@ -110,11 +113,11 @@ const bottomTabNavigator = createBottomTabNavigator(
     },
     ShareScreen: {
       screen: ShareStack,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: ({ navigation }) => ({
         tabBarLabel: 'Share',
         header: null,
         gesturesEnabled: false,
-        tabBarIcon: ({focused, tintColor}) => (
+        tabBarIcon: ({ focused, tintColor }) => (
           <IconComponent
             source={focused ? NavIcons.ShareSelect : NavIcons.share}
           />
@@ -123,12 +126,12 @@ const bottomTabNavigator = createBottomTabNavigator(
     },
     AboutScreen: {
       screen: AboutStack,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: ({ navigation }) => ({
         tabBarLabel: 'About Us',
         header: null,
         gesturesEnabled: false,
 
-        tabBarIcon: ({focused, tintColor}) => (
+        tabBarIcon: ({ focused, tintColor }) => (
           <IconComponent
             source={focused ? NavIcons.contactusSelect : NavIcons.contactus}
           />

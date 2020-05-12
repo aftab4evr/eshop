@@ -16,7 +16,6 @@ import {
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { OtpSubmitButton } from '../../component/Button'
-import OtpIcon from '../../assets/images/otpicon.png'
 import { Loader } from '../../component/Loader'
 import { handleOTPValidations } from './validations'
 
@@ -304,7 +303,7 @@ const style = StyleSheet.create({
         alignSelf: 'auto',
         marginLeft: wp('1%'),
         // marginTop: hp('1%'),
-        marginBottom: wp('12%'),
+        marginBottom: wp('12%')
     },
     OtpSendText: {
         marginTop: hp('1%'),

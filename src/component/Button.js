@@ -46,10 +46,10 @@ export const SubmitButton = (props) => {
 export const OtpSubmitButton = (props) => {
     let standardSize =
         props.Size === 'medium'
-            ? wp('73%')
+            ? wp('80%')
             : props.Size === 'small'
-                ? wp('40%')
-                : wp('60%');
+                ? wp('60%')
+                : wp('50%');
     return (
         <TouchableOpacity
             disabled={props.disabled}
@@ -57,8 +57,8 @@ export const OtpSubmitButton = (props) => {
             style={[
                 styles.OtpButtonContainer,
                 {
-                    height: standardSize ? standardSize / 4 : wp('5%'),
-                    width: standardSize ? standardSize : wp('5%'),
+                    height: standardSize ? standardSize / 7.4 : wp('12%'),
+                    width: standardSize ? standardSize : wp('72%'),
                 },
                 props.OtpButtonContainer,
                 ,
@@ -204,7 +204,6 @@ const styles = StyleSheet.create({
         marginLeft: wp('6%'),
     },
     OtpButtonContainer: {
-        width: wp('3%'),
         backgroundColor: '#CCCC00',
         justifyContent: 'center',
         alignItems: 'center',

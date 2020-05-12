@@ -103,7 +103,7 @@ class Login extends Component {
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <SubmitButton
                   submitOnpress={() =>
-                    this.props.navigation.navigate('HomeStack')
+                    this.props.navigation.navigate('Otp')
                   }
                   Size={'small'}
                   ButtonName="OTP on SMS"

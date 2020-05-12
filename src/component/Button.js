@@ -43,6 +43,41 @@ export const SubmitButton = (props) => {
     );
 };
 
+export const OtpSubmitButton = (props) => {
+    let standardSize =
+        props.Size === 'medium'
+            ? wp('73%')
+            : props.Size === 'small'
+                ? wp('40%')
+                : wp('60%');
+    return (
+        <TouchableOpacity
+            disabled={props.disabled}
+            onPress={props.submitOnpress}
+            style={[
+                styles.OtpButtonContainer,
+                {
+                    height: standardSize ? standardSize / 4 : wp('5%'),
+                    width: standardSize ? standardSize : wp('5%'),
+                },
+                props.OtpButtonContainer,
+                ,
+            ]}>
+            <Text
+                style={[
+                    styles.OtpButtonText,
+                    {
+                        fontSize: standardSize ? standardSize / 14 : wp('7%'),
+                    },
+                    props.ButtonText,
+                    ,
+                ]}>
+                {props.ButtonName ? props.ButtonName : 'SUBMIT'}
+            </Text>
+        </TouchableOpacity>
+    );
+};
+
 export const SkipButton = (props) => {
     let standardSize =
         props.Size === 'medium'
@@ -167,6 +202,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         marginLeft: wp('6%'),
+    },
+    OtpButtonContainer: {
+        width: wp('3%'),
+        backgroundColor: '#CCCC00',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: wp('6%'),
+        borderRadius: 90,
+    },
+    OtpButtonText: {
+        fontWeight: '700',
     },
 
     ButtonText: {

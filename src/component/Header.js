@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { Component, useState } from 'react';
 import {
   View,
   Text,
@@ -19,7 +19,7 @@ export const CustomHeader = (props) => {
   return (
     <View style={[styles.MainContainer, {}]}>
       <LinearGradient
-        colors={['#402431', '#ff1f95']}
+        colors={['#CCCC00', 'green']}
         style={styles.HomeHeaderBackgroundStyle}>
         <View
           style={{
@@ -29,11 +29,11 @@ export const CustomHeader = (props) => {
             justifyContent: 'center',
             marginHorizontal: wp('3%'),
           }}>
-          <View style={{flex: 1, justifyContent: 'center'}}>
+          <View style={{ flex: 1, justifyContent: 'center' }}>
             <View
               style={{
                 width: wp('90%'),
-                marginTop: hp('5%'),
+                marginTop: hp('30%'),
                 alignSelf: 'center',
                 flexDirection: 'row',
                 justifyContent: 'space-between',
@@ -52,26 +52,26 @@ export const CustomHeader = (props) => {
                   <Image
                     source={Icons.backicon}
                     resizeMode="contain"
-                    style={{width: wp('6%'), height: hp('3%')}}
+                    style={{ width: wp('6%'), height: hp('3%') }}
                   />
                 </TouchableOpacity>
               ) : (
-                <TouchableOpacity
-                  style={[
-                    styles.ImageView,
-                    {
-                      width: wp('6%'),
-                      height: hp('3%'),
-                      justifyContent: 'center',
-                    },
-                  ]}
-                  onPress={props.goback}
-                />
-              )}
+                  <TouchableOpacity
+                    style={[
+                      styles.ImageView,
+                      {
+                        width: wp('6%'),
+                        height: hp('3%'),
+                        justifyContent: 'center',
+                      },
+                    ]}
+                    onPress={props.goback}
+                  />
+                )}
               <Text
                 style={[
                   styles.titleText,
-                  {fontSize: wp('7%'), fontWeight: '700'},
+                  { fontSize: wp('7%'), fontWeight: '700' },
                 ]}>
                 {props.Title}
               </Text>

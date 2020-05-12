@@ -15,7 +15,7 @@ import {
 } from 'react-native'
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import { SubmitButton } from '../../component/Button'
+import { OtpSubmitButton } from '../../component/Button'
 import OtpIcon from '../../assets/images/otpicon.png'
 import { Loader } from '../../component/Loader'
 
@@ -47,72 +47,13 @@ class Otp extends Component {
     render() {
         return (
             <View style={style.container}>
-
-                <View style={{ alignItems: "center" }}>
-                    <Modal
-                        transparent={true}
-                        visible={this.state.modalVisible}
-                    >
-                        <View style={{ alignItems: "center", flex: 1, backgroundColor: 'rgba(49,176,249,0.8)', justifyContent: 'center' }}>
-
-                            <View style={{
-                                borderRadius: 8,
-                                marginTop: hp("35%"),
-                                justifyContent: "center",
-                                alignItems: "center",
-                                alignSelf: 'center',
-                                width: wp("60%"),
-                                backgroundColor: "white",
-                                height: hp("25%"),
-                                marginBottom: hp("30%")
-
-                            }}>
-                                <View style={style.crossView}>
-                                    <TouchableOpacity onPress={() => this.setState({ modalVisible: !this.state.modalVisible })}>
-                                        <Image source={Icons.crossicon} />
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{ width: wp("60%") }}>
-
-                                    <Text
-                                        style={{
-                                            fontSize: 15,
-                                            marginBottom: hp("13%"),
-                                            marginHorizontal: wp('8%'),
-                                            marginVertical: hp('-8%'),
-                                            alignSelf: 'center',
-                                            marginLeft: wp('7%')
-
-
-                                        }}
-                                    >
-                                        {this.state.message}
-                                    </Text>
-                                </View>
-
-                            </View>
-                        </View>
-                    </Modal>
-                </View>
-
-
-
                 <SafeAreaView >
                     <KeyboardAvoidingView style={style.container1} behavior={Platform.OS === 'ios' ? "padding" : null} enabled>
                         <ScrollView showsVerticalScrollIndicator={false}>
-                            <View style={style.otpImageView}>
-                                <Image source={OtpIcon} />
-                            </View>
-                            <View style={style.textStyle}>
-                                <Text style={{ color: 'rgb(93,93,93)', fontSize: 15 }}>Please enter the 4 digits OTP sent</Text>
-                                <Text style={{ color: 'rgb(93,93,93)', fontSize: 15 }}>on your registered phone number.</Text>
-                            </View>
-                            <View style={style.textStyle}>
-                                <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Enter 4- digits code</Text>
+                            <View>
+                                <Text style={style.TextStyle}>Verify mobile number</Text>
                             </View>
                             <View style={style.otpInputView}>
-
-
                                 <TextInput
                                     style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP1BorderError ? "red" : "lightgrey", }]}
                                     maxLength={1}
@@ -160,28 +101,33 @@ class Otp extends Component {
                                 </TextInput>
 
                             </View>
+                            <View>
+                                <Text style={style.OtpSendText}>
+                                    Please enter the OTP sent to your mobile number
+                            </Text>
+                            </View>
                             <View tyle={[style.ErrorView]} >
                                 <Text style={[style.ErrorText]} >
                                     {this.state.phoneError}
                                 </Text>
                             </View>
+                            <OtpSubmitButton
+                                ButtonText={{
+                                    fontSize: 20,
+                                    fontWeight: '700',
 
-                            <View style={style.ResendOtpView}>
-                                <TouchableOpacity onPress={() =>
-                                    this.ResendApi()}>
-                                    <Text style={{ color: '#23a7fa', }}>Resend</Text>
-                                </TouchableOpacity>
-                            </View>
-
-                            <SubmitButton
-                                ButtonText={{ fontSize: 20 }}
+                                }}
                                 //isLoading={this.state.enableButton}
                                 Size={"medium"}
-                                ButtonName="S U B M I T"
+                                ButtonName="VERIFY AND CONTINUE"
                                 submitOnpress={() => this.otpSubmit()
                                 }
                             />
-
+                            <View>
+                                <Text style={style.ResendText}>
+                                    Resend confirmation code
+                            </Text>
+                            </View>
                         </ScrollView>
                     </KeyboardAvoidingView>
                 </SafeAreaView>
@@ -189,7 +135,7 @@ class Otp extends Component {
                     visible={this.state.isLoading}
 
                 />
-            </View>
+            </View >
 
 
 
@@ -260,6 +206,7 @@ const style = StyleSheet.create({
     OtpTextInput: {
         borderRadius: 8,
         borderWidth: 1,
+        backgroundColor: '#E2E2DD',
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
@@ -271,6 +218,30 @@ const style = StyleSheet.create({
         marginBottom: hp('15%'),
         marginHorizontal: wp('-1%')
 
+    },
+    TextStyle: {
+        fontSize: 24,
+        fontWeight: '700',
+        alignSelf: 'auto',
+        marginLeft: wp('1%'),
+        // marginTop: hp('1%'),
+        marginBottom: wp('12%'),
+    },
+    OtpSendText: {
+        marginTop: hp('1%'),
+        color: 'black',
+        fontSize: 15,
+        marginLeft: wp('5%'),
+        marginBottom: hp('3%'),
+    },
+    ResendText: {
+        marginTop: hp('1%'),
+        color: 'black',
+        fontSize: 15,
+        marginLeft: wp('20%'),
+        marginBottom: hp('3%'),
+        color: '#CCCC00',
+        fontWeight: '700',
     },
 
 })

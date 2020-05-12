@@ -18,6 +18,8 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { OtpSubmitButton } from '../../component/Button'
 import OtpIcon from '../../assets/images/otpicon.png'
 import { Loader } from '../../component/Loader'
+import { handleOTPValidations } from './validations'
+
 
 
 class Otp extends Component {
@@ -42,101 +44,166 @@ class Otp extends Component {
 
     }
 
+    handleInput = (text, type, index, prevInput, nextInput) => {
+        this.setState({
+            phoneError: ''
+        })
 
+        let status = `${type}${index}Status`;
+        let errorText = `${type}${index}Error`;
+        let activeBorderColor = `active${type}${index}BorderError`;
+        let Otpvalue = `${type}${index}`
+        let resp = handleOTPValidations(text, type, index, prevInput, nextInput)
+
+        this.setState({
+            [Otpvalue]: resp.value,
+            [errorText]: resp.errorText,
+            [status]: resp.status,
+            [activeBorderColor]: !resp.status
+        })
+
+    }
 
     render() {
         return (
             <View style={style.container}>
-                <SafeAreaView >
-                    <KeyboardAvoidingView style={style.container1} behavior={Platform.OS === 'ios' ? "padding" : null} enabled>
-                        <ScrollView showsVerticalScrollIndicator={false}>
-                            <View>
-                                <Text style={style.TextStyle}>Verify mobile number</Text>
-                            </View>
-                            <View style={style.otpInputView}>
-                                <TextInput
-                                    style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP1BorderError ? "red" : "lightgrey", }]}
-                                    maxLength={1}
-                                    ref={(input) => { this.phoneOTP1 = input; }}
-                                    keyboardType="number-pad"
-                                    returnKeyType="next"
-                                    onChangeText={(text) => this.handleInput(text, 'phoneOTP', '1', this.phoneOTP1, this.phoneOTP2)}
-                                    onSubmitEditing={() => { this.phoneOTP2.focus(); }}
-                                >
-                                </TextInput>
 
-                                <TextInput
-                                    style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP2BorderError ? "red" : "lightgrey", }]}
-                                    maxLength={1}
-                                    keyboardType="number-pad"
-                                    onChangeText={(text) => this.handleInput(text, 'phoneOTP', '2', this.phoneOTP1, this.phoneOTP3)}
-                                    onSubmitEditing={() => { this.phoneOTP3.focus(); }}
-                                    ref={(input) => { this.phoneOTP2 = input; }}
-                                    ErrorBorder={this.state.activephoneOTP2BorderError}
-                                    returnKeyType="next"
-                                >
-                                </TextInput>
+                <View style={{ alignItems: "center" }}>
+                    <Modal
+                        transparent={true}
+                        visible={this.state.modalVisible}
+                    >
+                        <View style={{ alignItems: "center", flex: 1, backgroundColor: 'rgba(49,176,249,0.8)', justifyContent: 'center' }}>
 
-                                <TextInput
-                                    style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP3BorderError ? "red" : "lightgrey", }]}
-                                    maxLength={1}
-                                    keyboardType="number-pad"
-                                    onChangeText={(text) => this.handleInput(text, 'phoneOTP', '3', this.phoneOTP2, this.phoneOTP4)}
-                                    onSubmitEditing={() => { this.phoneOTP4.focus(); }}
-                                    ref={(input) => { this.phoneOTP3 = input; }}
-                                    ErrorBorder={this.state.activephoneOTP3BorderError}
-                                    returnKeyType="next"
-                                >
-                                </TextInput>
+                            <View style={{
+                                borderRadius: 8,
+                                marginTop: hp("35%"),
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: 'center',
+                                width: wp("60%"),
+                                backgroundColor: "white",
+                                height: hp("25%"),
+                                marginBottom: hp("30%")
 
-                                <TextInput
-                                    style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP4BorderError ? "red" : "lightgrey", }]}
-                                    maxLength={1}
-                                    keyboardType="number-pad"
-                                    onChangeText={(text) => this.handleInput(text, 'phoneOTP', '4', this.phoneOTP3, this.phoneOTP4)}
-                                    ref={(input) => { this.phoneOTP4 = input; }}
-                                    ErrorBorder={this.state.activephoneOTP4BorderError}
-                                    returnKeyType="done"
-                                >
-                                </TextInput>
+                            }}>
+                                <View style={style.crossView}>
+                                    <TouchableOpacity onPress={() => this.setState({ modalVisible: !this.state.modalVisible })}>
+                                        <Image source={Icons.crossicon} />
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={{ width: wp("60%") }}>
+
+                                    <Text
+                                        style={{
+                                            fontSize: 15,
+                                            marginBottom: hp("13%"),
+                                            marginHorizontal: wp('8%'),
+                                            marginVertical: hp('-8%'),
+                                            alignSelf: 'center',
+                                            marginLeft: wp('7%')
+
+
+                                        }}
+                                    >
+                                        {this.state.message}
+                                    </Text>
+                                </View>
 
                             </View>
-                            <View>
-                                <Text style={style.OtpSendText}>
-                                    Please enter the OTP sent to your mobile number
+                        </View>
+                    </Modal>
+
+                    <SafeAreaView >
+                        <KeyboardAvoidingView style={style.container1} behavior={Platform.OS === 'ios' ? "padding" : null} enabled>
+                            <ScrollView showsVerticalScrollIndicator={false}>
+                                <View>
+                                    <Text style={style.TextStyle}>Verify mobile number</Text>
+                                </View>
+                                <View style={style.otpInputView}>
+                                    <TextInput
+                                        style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP1BorderError ? "red" : "lightgrey", }]}
+                                        maxLength={1}
+                                        ref={(input) => { this.phoneOTP1 = input; }}
+                                        keyboardType="number-pad"
+                                        returnKeyType="next"
+                                        onChangeText={(text) => this.handleInput(text, 'phoneOTP', '1', this.phoneOTP1, this.phoneOTP2)}
+                                        onSubmitEditing={() => { this.phoneOTP2.focus(); }}
+                                    >
+                                    </TextInput>
+
+                                    <TextInput
+                                        style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP2BorderError ? "red" : "lightgrey", }]}
+                                        maxLength={1}
+                                        keyboardType="number-pad"
+                                        onChangeText={(text) => this.handleInput(text, 'phoneOTP', '2', this.phoneOTP1, this.phoneOTP3)}
+                                        onSubmitEditing={() => { this.phoneOTP3.focus(); }}
+                                        ref={(input) => { this.phoneOTP2 = input; }}
+                                        ErrorBorder={this.state.activephoneOTP2BorderError}
+                                        returnKeyType="next"
+                                    >
+                                    </TextInput>
+
+                                    <TextInput
+                                        style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP3BorderError ? "red" : "lightgrey", }]}
+                                        maxLength={1}
+                                        keyboardType="number-pad"
+                                        onChangeText={(text) => this.handleInput(text, 'phoneOTP', '3', this.phoneOTP2, this.phoneOTP4)}
+                                        onSubmitEditing={() => { this.phoneOTP4.focus(); }}
+                                        ref={(input) => { this.phoneOTP3 = input; }}
+                                        ErrorBorder={this.state.activephoneOTP3BorderError}
+                                        returnKeyType="next"
+                                    >
+                                    </TextInput>
+
+                                    <TextInput
+                                        style={[style.OtpTextInput, { borderColor: this.state.activephoneOTP4BorderError ? "red" : "lightgrey", }]}
+                                        maxLength={1}
+                                        keyboardType="number-pad"
+                                        onChangeText={(text) => this.handleInput(text, 'phoneOTP', '4', this.phoneOTP3, this.phoneOTP4)}
+                                        ref={(input) => { this.phoneOTP4 = input; }}
+                                        ErrorBorder={this.state.activephoneOTP4BorderError}
+                                        returnKeyType="done"
+                                    >
+                                    </TextInput>
+
+                                </View>
+                                <View>
+                                    <Text style={style.OtpSendText}>
+                                        Please enter the OTP sent to your mobile number
                             </Text>
-                            </View>
-                            <View tyle={[style.ErrorView]} >
-                                <Text style={[style.ErrorText]} >
-                                    {this.state.phoneError}
-                                </Text>
-                            </View>
-                            <OtpSubmitButton
-                                ButtonText={{
-                                    fontSize: 20,
-                                    fontWeight: '700',
+                                </View>
+                                <View tyle={[style.ErrorView]} >
+                                    <Text style={[style.ErrorText]} >
+                                        {this.state.phoneError}
+                                    </Text>
+                                </View>
+                                <OtpSubmitButton
+                                    ButtonText={{
+                                        fontSize: 20,
+                                        fontWeight: '700',
 
-                                }}
-                                //isLoading={this.state.enableButton}
-                                Size={"medium"}
-                                ButtonName="VERIFY AND CONTINUE"
-                                submitOnpress={() => this.otpSubmit()
-                                }
-                            />
-                            <View>
-                                <Text style={style.ResendText}>
-                                    Resend confirmation code
+                                    }}
+                                    //isLoading={this.state.enableButton}
+                                    Size={"medium"}
+                                    ButtonName="VERIFY AND CONTINUE"
+                                    submitOnpress={() => this.otpSubmit()
+                                    }
+                                />
+                                <View>
+                                    <Text style={style.ResendText}>
+                                        Resend confirmation code
                             </Text>
-                            </View>
-                        </ScrollView>
-                    </KeyboardAvoidingView>
-                </SafeAreaView>
-                <Loader
-                    visible={this.state.isLoading}
+                                </View>
+                            </ScrollView>
+                        </KeyboardAvoidingView>
+                    </SafeAreaView>
+                    <Loader
+                        visible={this.state.isLoading}
 
-                />
-            </View >
-
+                    />
+                </View >
+            </View>
 
 
 

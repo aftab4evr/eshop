@@ -43,6 +43,12 @@ class Otp extends Component {
         console.log(this.state.phone)
 
     }
+    ResendApi = () => {
+        this.setState({
+            isLoading: false,
+            modalVisible: true
+        })
+    }
 
     handleInput = (text, type, index, prevInput, nextInput) => {
         this.setState({
@@ -191,9 +197,11 @@ class Otp extends Component {
                                     }
                                 />
                                 <View>
-                                    <Text style={style.ResendText}>
-                                        Resend confirmation code
-                            </Text>
+                                    <TouchableOpacity onPress={() =>
+                                        this.ResendApi()}>
+                                        <Text style={style.ResendText}>Resend confirmation code</Text>
+                                    </TouchableOpacity>
+
                                 </View>
                             </ScrollView>
                         </KeyboardAvoidingView>

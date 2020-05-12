@@ -207,7 +207,7 @@ const style = StyleSheet.create({
     height: 40,
   },
   WhatsapTextStyle: {
-    color: '#fff',
+    color: 'green',
     marginBottom: 16,
     fontSize: 14,
     marginRight: 20,

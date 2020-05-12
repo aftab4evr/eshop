@@ -89,6 +89,7 @@ class Otp extends Component {
                                         returnKeyType="next"
                                         onChangeText={(text) => this.handleInput(text, 'phoneOTP', '1', this.phoneOTP1, this.phoneOTP2)}
                                         onSubmitEditing={() => { this.phoneOTP2.focus(); }}
+                                        secureTextEntry={true}
                                     >
                                     </TextInput>
 
@@ -102,6 +103,7 @@ class Otp extends Component {
                                         ref={(input) => { this.phoneOTP2 = input; }}
                                         ErrorBorder={this.state.activephoneOTP2BorderError}
                                         returnKeyType="next"
+                                        secureTextEntry={true}
                                     >
                                     </TextInput>
 
@@ -115,6 +117,7 @@ class Otp extends Component {
                                         ref={(input) => { this.phoneOTP3 = input; }}
                                         ErrorBorder={this.state.activephoneOTP3BorderError}
                                         returnKeyType="next"
+                                        secureTextEntry={true}
                                     >
                                     </TextInput>
 
@@ -127,6 +130,7 @@ class Otp extends Component {
                                         ref={(input) => { this.phoneOTP4 = input; }}
                                         ErrorBorder={this.state.activephoneOTP4BorderError}
                                         returnKeyType="done"
+                                        secureTextEntry={true}
                                     >
                                     </TextInput>
 
@@ -244,7 +248,8 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: wp("14%"),
-        height: hp("6%")
+        height: hp("6%"),
+        fontSize:24
     },
     crossView: {
         alignSelf: 'flex-end',

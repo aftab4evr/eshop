@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
         marginLeft: wp('6%'),
     },
     OtpButtonContainer: {
-        backgroundColor: '#CCCC00',
+        backgroundColor: 'green',
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: wp('6%')

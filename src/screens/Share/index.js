@@ -1,5 +1,17 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+const {width, height} = Dimensions.get('window');
 
 class Share extends Component {
   constructor(props) {
@@ -10,13 +22,18 @@ class Share extends Component {
   render() {
     return (
       <View>
-        <Text> Share </Text>
-        <Text> Share </Text>
-        <Text> Share </Text>
-        <Text> Share </Text>
+        <SafeAreaView>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={style.cardView}>
+              <Text> Share Screen</Text>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
       </View>
     );
   }
 }
-
+const style = StyleSheet.create({
+  
+});
 export default Share;

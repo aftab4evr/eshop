@@ -43,6 +43,8 @@ export default {
   tab4Icon: require(path + 'tab4_icon/tab4_icon.png'),
   tab4iconSel: require(path + 'tab4_icon/tab4Icon.png'),
   menuicon: require('../assets/images/menu_icon.png'),
+  backarrow: require('../assets/images/backarrow.png'),
+
   backicon: require('../assets/images/backarrow_icon.png'),
   bellicon: require('../assets/images/notification.png'),
   Profile: require('../assets/images/profile_icon.png'),

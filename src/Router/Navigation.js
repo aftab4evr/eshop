@@ -48,10 +48,9 @@ const Authstack = createStackNavigator(
       navigationOptions: ({navigation}, props) => ({
         header: (
           <CustomHeader
-            Size={'medium'}
             navigation={navigation}
             {...props}
-            backicon={NavIcons.backicon}
+            back={NavIcons.backarrow}
             Title="OTP"
             backicon={true}
             goback={() => navigation.goBack()}

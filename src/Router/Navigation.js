@@ -64,18 +64,12 @@ const Homestack = createStackNavigator({
       header: null,
     }),
   },
-});
-
-const ShareStack = createStackNavigator({
   Share: {
     screen: Share,
     navigationOptions: ({navigation}, props) => ({
       header: null,
     }),
   },
-});
-
-const AboutStack = createStackNavigator({
   AboutScreen: {
     screen: AboutUs,
     navigationOptions: ({navigation}, props) => ({
@@ -84,73 +78,91 @@ const AboutStack = createStackNavigator({
   },
 });
 
-const bottomTabNavigator = createBottomTabNavigator(
-  {
-    HomeStack: {
-      screen: Homestack,
-      navigationOptions: ({navigation}) => ({
-        tabBarLabel: 'Home',
-        header: null,
-        gesturesEnabled: false,
-        tabBarIcon: ({focused, tintColor}) => (
-          <IconComponent
-            source={focused ? NavIcons.homeSelect : NavIcons.home}
-          />
-        ),
-      }),
-    },
-    ShareScreen: {
-      screen: ShareStack,
-      navigationOptions: ({navigation}) => ({
-        tabBarLabel: 'Share',
-        header: null,
-        gesturesEnabled: false,
-        tabBarIcon: ({focused, tintColor}) => (
-          <IconComponent
-            source={focused ? NavIcons.ShareSelect : NavIcons.share}
-          />
-        ),
-      }),
-    },
-    AboutScreen: {
-      screen: AboutStack,
-      navigationOptions: ({navigation}) => ({
-        tabBarLabel: 'About Us',
-        header: null,
-        gesturesEnabled: false,
+// const ShareStack = createStackNavigator({
+//   Share: {
+//     screen: Share,
+//     navigationOptions: ({navigation}, props) => ({
+//       header: null,
+//     }),
+//   },
+// });
 
-        tabBarIcon: ({focused, tintColor}) => (
-          <IconComponent
-            source={focused ? NavIcons.contactusSelect : NavIcons.contactus}
-          />
-        ),
-      }),
-    },
-  },
-  {
-    tabBarOptions: {
-      activeTintColor: 'rgb(18, 18, 18)',
-      inactiveTintColor: 'rgb(140,140,140)',
-      fontWeight: '700',
-      showIcon: true,
-      showLabel: true,
-      style: {
-        // backgroundColor: 'white',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-      },
-    },
-  },
-);
+// const AboutStack = createStackNavigator({
+//   AboutScreen: {
+//     screen: AboutUs,
+//     navigationOptions: ({navigation}, props) => ({
+//       header: null,
+//     }),
+//   },
+// });
 
-const NewStack = createStackNavigator({
-  HomeStack: {
-    screen: bottomTabNavigator,
-    navigationOptions: {
-      header: null,
-    },
-  },
-});
+// const bottomTabNavigator = createBottomTabNavigator(
+//   {
+//     // HomeStack: {
+//     //   screen: Homestack,
+//     //   navigationOptions: ({navigation}) => ({
+//     //     tabBarLabel: 'Home',
+//     //     header: null,
+//     //     gesturesEnabled: false,
+//     //     tabBarIcon: ({focused, tintColor}) => (
+//     //       <IconComponent
+//     //         source={focused ? NavIcons.homeSelect : NavIcons.home}
+//     //       />
+//     //     ),
+//     //   }),
+//     // },
+//     // ShareScreen: {
+//     //   screen: ShareStack,
+//     //   navigationOptions: ({navigation}) => ({
+//     //     tabBarLabel: 'Share',
+//     //     header: null,
+//     //     gesturesEnabled: false,
+//     //     tabBarIcon: ({focused, tintColor}) => (
+//     //       <IconComponent
+//     //         source={focused ? NavIcons.ShareSelect : NavIcons.share}
+//     //       />
+//     //     ),
+//     //   }),
+//     // },
+//     // AboutScreen: {
+//     //   screen: AboutStack,
+//     //   navigationOptions: ({navigation}) => ({
+//     //     tabBarLabel: 'About Us',
+//     //     header: null,
+//     //     gesturesEnabled: false,
+
+//     //     tabBarIcon: ({focused, tintColor}) => (
+//     //       <IconComponent
+//     //         source={focused ? NavIcons.contactusSelect : NavIcons.contactus}
+//     //       />
+//     //     ),
+//     //   }),
+//     // },
+//   },
+//   {
+//     tabBarOptions: {
+//       activeTintColor: 'rgb(18, 18, 18)',
+//       inactiveTintColor: 'rgb(140,140,140)',
+//       fontWeight: '700',
+//       showIcon: true,
+//       showLabel: true,
+//       style: {
+//         // backgroundColor: 'white',
+//         borderTopLeftRadius: 30,
+//         borderTopRightRadius: 30,
+//       },
+//     },
+//   },
+// );
+
+// const NewStack = createStackNavigator({
+//   HomeStack: {
+//     screen: bottomTabNavigator,
+//     navigationOptions: {
+//       header: null,
+//     },
+//   },
+// });
 
 const Switchnavigator = createSwitchNavigator(
   {
@@ -158,7 +170,7 @@ const Switchnavigator = createSwitchNavigator(
       screen: Authstack,
     },
     HomeScreen: {
-      screen: NewStack,
+      screen: Homestack,
     },
   },
   {

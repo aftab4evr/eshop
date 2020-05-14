@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -18,10 +18,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { CustomTextInput } from '../../component/GlobalTextInput';
-import { SubmitButton } from '../../component/Button';
+import {CustomTextInput} from '../../component/GlobalTextInput';
+import {SubmitButton} from '../../component/Button';
 import icon from './icons';
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 class Login extends Component {
   constructor(props) {
@@ -98,18 +98,12 @@ class Login extends Component {
                   We will send you OTP on this number
                 </Text>
               </View>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <SubmitButton
                   submitOnpress={() => this.props.navigation.navigate('Otp')}
                   Size={'small'}
                   ButtonName="OTP on SMS"
                 />
-
-                {/* <SubmitButton
-                  submitOnpress={() => this.props.navigation.navigate('Otp')}
-                  Size={'small'}
-                  ButtonName="Get OTP on WhatsApp"
-                /> */}
                 <TouchableOpacity
                   onPress={() => this.props.navigation.navigate('Home')}
                   style={style.GooglePlusStyle}

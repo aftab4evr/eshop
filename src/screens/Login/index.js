@@ -44,7 +44,7 @@ class Login extends Component {
           enabled>
           <SafeAreaView>
             <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={{alignItems: 'center'}}>
+              <View style={style.ImageContainer}>
                 <Image style={style.StoreStyle} source={icon.storenearme} />
                 <Image style={style.ImageStyle} source={icon.loginIcon} />
               </View>
@@ -104,13 +104,18 @@ class Login extends Component {
                   Size={'small'}
                   ButtonName="OTP on SMS"
                 />
+
+                {/* <SubmitButton
+                  submitOnpress={() => this.props.navigation.navigate('Otp')}
+                  Size={'small'}
+                  ButtonName="Get OTP on WhatsApp"
+                /> */}
                 <TouchableOpacity
                   onPress={() => this.props.navigation.navigate('Home')}
                   style={style.GooglePlusStyle}
                   activeOpacity={0.5}>
                   <Text style={style.WhatsapTextStyle}>
                     Get OTP on WhatsApp
-                    <View style={style.SeparatorLine} />
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -128,20 +133,25 @@ const style = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: 'white',
-    // marginTop: wp('18%'),
   },
-
+  ImageContainer: {
+    flexDirection: 'column',
+    width: wp('40%'),
+  },
   ImageStyle: {
-    height: hp('40%'),
+    height: hp('30%'),
     width: wp('100%'),
-    // marginBottom: wp('10%'),
+  },
+  StoreStyle: {
+    height: hp('30%'),
+    width: wp('100%'),
+    marginTop: hp('2px'),
   },
   TextStyle: {
     fontSize: 20,
     fontWeight: '800',
     alignSelf: 'auto',
     marginLeft: wp('5%'),
-    // marginTop: hp('1%'),
     marginBottom: wp('12%'),
   },
   TextInputMainContainer: {
@@ -179,7 +189,6 @@ const style = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     paddingVertical: 15,
-    // borderRadius: hp('1%'),
     borderWidth: hp('.5%'),
     borderColor: '#05CB18',
   },
@@ -212,6 +221,7 @@ const style = StyleSheet.create({
     fontSize: 14,
     marginRight: 20,
     fontWeight: '600',
+    marginTop: wp('3%'),
     marginLeft: wp('3%'),
   },
 });

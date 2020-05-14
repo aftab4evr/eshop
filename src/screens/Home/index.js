@@ -13,131 +13,172 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-
+import icon from '../Login/icons';
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      story: [
+      groceryList: [
         {
-          avatar:
-            'https://cdn.britannica.com/13/146313-050-DD9AAC27/India-War-Memorial-arch-New-Delhi-Sir.jpg',
-          name: 'New Delhi',
-          id: 1,
+          name: 'Bread',
+          whatsappno: '789456123',
+          callno: '88565656565',
+          area: 'Salt Lake',
+          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
         },
         {
-          avatar:
-            'https://static.toiimg.com/thumb/msid-53891735,width-748,height-499,resizemode=4,imgsize-126102/The-Gateway-of-India.jpg',
-          name: 'Mumbai',
-          id: 2,
+          name: 'Pasta',
+          whatsappno: '789456123',
+          callno: '88565656565',
+          area: 'Salt Lake',
+          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
         },
         {
-          avatar: 'https://www.holidify.com/images/bgImages/KOLKATA.jpg',
-          name: 'Kolkata',
-          id: 2,
+          name: 'Soups',
+          whatsappno: '789456123',
+          callno: '88565656565',
+          area: 'Salt Lake',
+          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
         },
         {
-          avatar:
-            'https://www.orangesmile.com/common/img_cities_original/chennai--2103041-2.jpg',
-          name: 'Chennai',
-          id: 2,
-        },
-        {
-          avatar:
-            'https://cdn.britannica.com/13/146313-050-DD9AAC27/India-War-Memorial-arch-New-Delhi-Sir.jpg',
-          name: 'New Delhi',
-          id: 1,
-        },
-        {
-          avatar:
-            'https://static.toiimg.com/thumb/msid-53891735,width-748,height-499,resizemode=4,imgsize-126102/The-Gateway-of-India.jpg',
-          name: 'Mumbai',
-          id: 2,
-        },
-        {
-          avatar: 'https://www.holidify.com/images/bgImages/KOLKATA.jpg',
-          name: 'Kolkata',
-          id: 2,
-        },
-        {
-          avatar:
-            'https://www.orangesmile.com/common/img_cities_original/chennai--2103041-2.jpg',
-          name: 'Chennai',
-          id: 2,
+          name: 'Cheese',
+          whatsappno: '789456123',
+          callno: '88565656565',
+          area: 'Salt Lake',
+          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
         },
       ],
     };
   }
-
-  renderStoryElement = (item, index) => {
+  groceydetails(item, index) {
     return (
-      <TouchableOpacity
-        onPress={() => console.log('Clicked', item)}
-        style={style.StoryTouchableOpacity}>
+      <View
+        style={{
+          width: wp('85%'),
+          alignSelf: 'center',
+          height: hp('10%'),
+          backgroundColor: 'white',
+          marginVertical: hp('1%'),
+          flexDirection: 'row',
+        }}>
         <Image
-          style={style.StoryImageStyle}
           resizeMode="contain"
-          source={{uri: item.avatar}}
+          source={{uri: item.image}}
+          style={{width: wp('20%'), height: hp('10%'), marginLeft: wp('3%')}}
         />
-        <View style={{width: wp('24%'), alignItems: 'center'}}>
-          <Text
+
+        <View
+          style={{
+            marginLeft: wp('2%'),
+            width: wp('55%'),
+            height: hp('10%'),
+
+            justifyContent: 'flex-end',
+          }}>
+          <Text style={{marginTop: hp('2%')}}>{item.name}</Text>
+          <View
             style={{
-              color: 'black',
-              fontWeight: '600',
+              justifyContent: 'flex-end',
+              marginTop: hp('2%'),
+              flexDirection: 'row',
+              borderBottomWidth: 0.5,
             }}>
-            {item.name}
-          </Text>
+            <TouchableOpacity>
+              <Text style={{marginRight: 20}}>whatsapp</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={{marginRight: 10}}>call</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={{marginBottom: hp('1.5%'), marginLeft: wp('40%')}}>
+              {item.area}
+            </Text>
+          </View>
         </View>
-      </TouchableOpacity>
+      </View>
     );
-  };
+  }
   render() {
     return (
       <View>
-        <SafeAreaView />
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={style.cardView}>
-            <View
+        <SafeAreaView>
+          <View
+            style={{
+              height: hp('30%'),
+              width: wp('100%'),
+            }}>
+            <Image
+              resizeMode="contain"
+              source={icon.storenearme}
+              // style={{width: wp('1000%'), height: hp('30%')}}
+            />
+          </View>
+          <View
+            style={{
+              height: hp('10%'),
+              width: wp('100%'),
+              backgroundColor: 'cyan',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({All: true, Grocery: false});
+              }}
               style={{
-                marginLeft: wp('2%'),
-                width: wp('100%'),
-                height: hp('18%'),
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                backgroundColor: this.state.All
+                  ? 'rgba(98,102,243,0.8)'
+                  : '#C4CCF9',
+                height: 35,
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: wp('47%'),
               }}>
-              <View style={{flexDirection: 'row', width: wp('90%')}}>
-                <Text
-                  style={{
-                    fontWeight: '700',
-                    marginVertical: hp('1%'),
-                    fontSize: 18,
-                  }}>
-                  Serving Areas
-                </Text>
-              </View>
+              <Text style={{fontWeight: '500', fontSize: 20}}>All </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({All: false, Grocery: true});
+              }}
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                backgroundColor: this.state.Grocery
+                  ? '#C4CCF9'
+                  : 'rgba(98,102,243,0.8)',
+                height: 35,
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: wp('47%'),
+              }}>
+              <Text style={{fontWeight: '500', fontSize: 20}}>Grocery </Text>
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              height: hp('50%'),
+              width: wp('100%'),
+              backgroundColor: 'yellow',
+            }}>
+            {this.state.Grocery ? (
               <FlatList
                 showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                data={this.state.story}
-                renderItem={({item, index}) =>
-                  this.renderStoryElement(item, index)
-                }
+                data={this.state.groceryList}
+                renderItem={({item, index}) => this.groceydetails(item, index)}
                 keyExtractor={(item) => item.id}
               />
-            </View>
+            ) : null}
           </View>
-        </ScrollView>
+        </SafeAreaView>
       </View>
     );
   }
 }
 
 const style = StyleSheet.create({
-  container: {
-    zIndex: 1,
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: 'rgb( 247, 249, 251)',
-    marginTop: hp('1%'),
-  },
   cardView: {
     marginTop: hp('2%'),
     shadowOpacity: 0.4,
@@ -148,13 +189,6 @@ const style = StyleSheet.create({
     borderWidth: 0.3,
     borderColor: 'lightgray',
     width: wp('100%'),
-  },
-  StoryImageStyle: {
-    // marginVertical: wp('2%'),
-    width: wp('20%'),
-    height: hp('10%'),
-    borderRadius: 400 / 2,
-    borderWidth: 1,
   },
 });
 export default Home;

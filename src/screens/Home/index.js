@@ -148,6 +148,7 @@ class Home extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 borderRadius: 79,
+                marginLeft: wp('2%'),
                 backgroundColor: this.state.Grocery
                   ? '#C4CCF9'
                   : 'rgba(98,102,243,0.8)',

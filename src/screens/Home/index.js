@@ -130,13 +130,14 @@ class Home extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 borderRadius: 79,
+                marginLeft: wp('2%'),
                 backgroundColor: this.state.All
                   ? 'rgba(98,102,243,0.8)'
                   : '#C4CCF9',
                 height: 35,
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: wp('47%'),
+                width: wp('45%'),
               }}>
               <Text style={{ fontWeight: '500', fontSize: 20 }}>All </Text>
             </TouchableOpacity>
@@ -155,7 +156,7 @@ class Home extends Component {
                 height: 35,
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: wp('47%'),
+                width: wp('45%'),
               }}>
               <Text style={{ fontWeight: '500', fontSize: 20 }}>Grocery </Text>
             </TouchableOpacity>

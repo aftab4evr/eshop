@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -41,8 +41,8 @@ class Home extends Component {
         }}>
         <Image
           resizeMode="contain"
-          source={{uri: item.image}}
-          style={{width: wp('20%'), height: hp('10%'), marginLeft: wp('3%')}}
+          source={{ uri: item.image }}
+          style={{ width: wp('20%'), height: hp('10%'), marginLeft: wp('3%') }}
         />
 
         <View
@@ -53,7 +53,7 @@ class Home extends Component {
 
             justifyContent: 'flex-end',
           }}>
-          <Text style={{marginTop: hp('2%')}}>{item.name}</Text>
+          <Text style={{ marginTop: hp('2%') }}>{item.name}</Text>
           <View
             style={{
               justifyContent: 'flex-end',
@@ -62,14 +62,14 @@ class Home extends Component {
               borderBottomWidth: 0.5,
             }}>
             <TouchableOpacity>
-              <Text style={{marginRight: 20}}>whatsapp</Text>
+              <Text style={{ marginRight: 20 }}>whatsapp</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Text style={{marginRight: 10}}>call</Text>
+              <Text style={{ marginRight: 10 }}>call</Text>
             </TouchableOpacity>
           </View>
           <View>
-            <Text style={{marginBottom: hp('1.5%'), marginLeft: wp('40%')}}>
+            <Text style={{ marginBottom: hp('1.5%'), marginLeft: wp('40%') }}>
               {item.area}
             </Text>
           </View>
@@ -89,7 +89,7 @@ class Home extends Component {
             <Image
               resizeMode="contain"
               source={icon.storenearme}
-              // style={{width: wp('1000%'), height: hp('30%')}}
+            // style={{width: wp('1000%'), height: hp('30%')}}
             />
           </View>
           <View
@@ -111,6 +111,7 @@ class Home extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 borderRadius: 79,
+                marginLeft: wp('2%'),
                 backgroundColor: this.state.All
                   ? 'rgba(98,102,243,0.8)'
                   : '#C4CCF9',
@@ -119,7 +120,7 @@ class Home extends Component {
                 alignItems: 'center',
                 width: wp('30%'),
               }}>
-              <Text style={{fontWeight: '500', fontSize: 20}}>All </Text>
+              <Text style={{ fontWeight: '500', fontSize: 20 }}>All </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -140,7 +141,7 @@ class Home extends Component {
                 alignItems: 'center',
                 width: wp('30%'),
               }}>
-              <Text style={{fontWeight: '500', fontSize: 20}}>Grocery </Text>
+              <Text style={{ fontWeight: '500', fontSize: 20 }}>Grocery </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -161,7 +162,7 @@ class Home extends Component {
                 alignItems: 'center',
                 width: wp('30%'),
               }}>
-              <Text style={{fontWeight: '500', fontSize: 20}}>Healthcare </Text>
+              <Text style={{ fontWeight: '500', fontSize: 20 }}>Healthcare </Text>
             </TouchableOpacity>
           </View>
           <View
@@ -187,7 +188,7 @@ const style = StyleSheet.create({
   cardView: {
     marginTop: hp('2%'),
     shadowOpacity: 0.4,
-    shadowOffset: {width: 0.1, height: 0.1},
+    shadowOffset: { width: 0.1, height: 0.1 },
     shadowRadius: 0.9,
     alignItems: 'center',
     backgroundColor: '#ffffff',

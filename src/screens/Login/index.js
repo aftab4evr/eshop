@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -18,10 +18,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {CustomTextInput} from '../../component/GlobalTextInput';
-import {SubmitButton} from '../../component/Button';
+import { CustomTextInput } from '../../component/GlobalTextInput';
+import { SubmitButton } from '../../component/Button';
 import icon from './icons';
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 class Login extends Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class Login extends Component {
                   We will send you OTP on this number
                 </Text>
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <SubmitButton
                   submitOnpress={() => this.props.navigation.navigate('Otp')}
                   Size={'small'}
@@ -217,11 +217,11 @@ const style = StyleSheet.create({
   },
   WhatsapTextStyle: {
     color: 'green',
-    marginBottom: 16,
+    marginBottom: 15,
     fontSize: 14,
     marginRight: 20,
-    fontWeight: '600',
-    marginTop: wp('3%'),
+    fontWeight: '500',
+    marginTop: wp('2%'),
     marginLeft: wp('3%'),
   },
 });

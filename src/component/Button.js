@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         marginLeft: wp('6%'),
+
     },
     OtpButtonContainer: {
         backgroundColor: 'green',
@@ -214,7 +215,7 @@ const styles = StyleSheet.create({
     },
 
     ButtonText: {
-        fontWeight: '700',
+        fontWeight: '900',
         color: '#05CB18',
     },
 

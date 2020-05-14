@@ -14,41 +14,19 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import icon from '../Login/icons';
+
+import {all, healtcare, grocery} from './Constant';
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      groceryList: [
-        {
-          name: 'Bread',
-          whatsappno: '789456123',
-          callno: '88565656565',
-          area: 'Salt Lake',
-          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
-        },
-        {
-          name: 'Pasta',
-          whatsappno: '789456123',
-          callno: '88565656565',
-          area: 'Salt Lake',
-          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
-        },
-        {
-          name: 'Soups',
-          whatsappno: '789456123',
-          callno: '88565656565',
-          area: 'Salt Lake',
-          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
-        },
-        {
-          name: 'Cheese',
-          whatsappno: '789456123',
-          callno: '88565656565',
-          area: 'Salt Lake',
-          image: 'https://ecombasket.com/img/5261704cubesssss.jpg',
-        },
-      ],
+      itemList: [],
     };
+  }
+  componentDidMount() {
+    this.setState({
+      itemList: all,
+    });
   }
   groceydetails(item, index) {
     return (
@@ -121,10 +99,13 @@ class Home extends Component {
               backgroundColor: 'cyan',
               flexDirection: 'row',
               alignItems: 'center',
+              alignSelf: 'center',
             }}>
             <TouchableOpacity
               onPress={() => {
-                this.setState({All: true, Grocery: false});
+                this.setState({
+                  itemList: all,
+                });
               }}
               style={{
                 flexDirection: 'row',
@@ -142,7 +123,9 @@ class Home extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                this.setState({All: false, Grocery: true});
+                this.setState({
+                  itemList: grocery,
+                });
               }}
               style={{
                 flexDirection: 'row',
@@ -161,7 +144,9 @@ class Home extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                this.setState({All: false, Healthcare: true});
+                this.setState({
+                  itemList: healtcare,
+                });
               }}
               style={{
                 flexDirection: 'row',
@@ -185,14 +170,12 @@ class Home extends Component {
               width: wp('100%'),
               backgroundColor: 'yellow',
             }}>
-            {this.state.Grocery ? (
-              <FlatList
-                showsHorizontalScrollIndicator={false}
-                data={this.state.groceryList}
-                renderItem={({item, index}) => this.groceydetails(item, index)}
-                keyExtractor={(item) => item.id}
-              />
-            ) : null}
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              data={this.state.itemList}
+              renderItem={({item, index}) => this.groceydetails(item, index)}
+              keyExtractor={(item) => item.id}
+            />
           </View>
         </SafeAreaView>
       </View>

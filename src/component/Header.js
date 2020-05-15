@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, {Component, useState} from 'react';
 import {
   View,
   Text,
@@ -21,81 +21,22 @@ export const CustomHeader = (props) => {
       <LinearGradient
         colors={['white', 'white']}
         style={styles.HomeHeaderBackgroundStyle}>
-        <View
-          style={{
-            flexDirection: 'column',
-            height: hp('7%'),
-            alignContent: 'center',
-            justifyContent: 'center',
-            marginHorizontal: wp('3%'),
-          }}>
-          <View style={{ flex: 1, justifyContent: 'center' }}>
-            <View
-              style={{
-                width: wp('90%'),
-                marginTop: hp('30%'),
-                alignSelf: 'center',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}>
-              {props.backicon ? (
-                <TouchableOpacity
-                  style={[
-                    styles.ImageView,
-                    {
-                      width: wp('6%'),
-                      height: hp('3%'),
-                      justifyContent: 'center',
-                    },
-                  ]}
-                  onPress={props.goback}>
-                  <Image
-                    source={Icons.backicon}
-                    resizeMode="contain"
-                    style={{ width: wp('6%'), height: hp('3%') }}
-                  />
-                </TouchableOpacity>
-              ) : (
-                  <TouchableOpacity
-                    style={[
-                      styles.ImageView,
-                      {
-                        width: wp('6%'),
-                        height: hp('3%'),
-                        justifyContent: 'center',
-                      },
-                    ]}
-                    onPress={props.goback}
-                  />
-                )}
-              <Text
-                style={[
-                  styles.titleText,
-                  { fontSize: wp('7%'), fontWeight: '700' },
-                ]}>
-                {props.Title}
-              </Text>
-              {/* <View
-                style={{
-                  width: wp('18%'),
-                  flexDirection: 'row',
-                  justifyContent: 'flex-end',
-                }}>
-                {props.Profile ? (
-                  <TouchableOpacity
-                    style={{marginRight: hp('2%')}}
-                    onPress={props.profileOnpress}>
-                    <Image source={props.Profile} />
-                  </TouchableOpacity>
-                ) : null}
-
-                {props.bellicon ? (
-                  <TouchableOpacity onPress={props.bellnotificationsOnpress}>
-                    <Image source={props.bellicon} />
-                  </TouchableOpacity>
-                ) : null}
-              </View> */}
-            </View>
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <View
+            style={{
+              width: wp('90%'),
+              // marginTop: hp('5%'),
+              alignSelf: 'center',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <Text
+              style={[
+                styles.titleText,
+                {fontSize: wp('7%'), fontWeight: '700', color: 'black'},
+              ]}>
+              {props.Title}
+            </Text>
           </View>
         </View>
       </LinearGradient>
@@ -105,7 +46,7 @@ export const CustomHeader = (props) => {
 
 const styles = StyleSheet.create({
   MainContainer: {
-    height: hp('12%'),
+    height: hp('10%'),
   },
   titleText: {
     color: 'white',
@@ -125,9 +66,7 @@ const styles = StyleSheet.create({
   },
   HomeHeaderBackgroundStyle: {
     width: wp('100%'),
-    height: hp('9%'),
+    height: hp('8%'),
     flexDirection: 'column',
   },
 });
-
-// export default CustomHeader;

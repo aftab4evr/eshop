@@ -7,6 +7,7 @@ export default Icons = {
   downarrow: require(`${path}downarrow.png`),
   loginIcon: require(`${path}icon.jpeg`),
   call: require(`${path}call.png`),
+  item: require(`${path}item.jpg`),
 
   storenearme: require(`${path}storenearme.png`),
 };

@@ -22,7 +22,7 @@ import {CustomHeader} from '../component/Header';
 
 import Login from '../screens/Login/index';
 import Otp from '../screens/Otp/index';
-import Home from '../screens/Home/index';
+import Home from '../screens/Home/home';
 import Share from '../screens/Share/index';
 import AboutUs from '../screens/AboutUs/index';
 
@@ -61,15 +61,44 @@ const Homestack = createStackNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({navigation}, props) => ({
-      header: null,
+      header: (
+        <CustomHeader
+          Size={'medium'}
+          navigation={navigation}
+          {...props}
+          backicon={NavIcons.backicon}
+          Title="Amour"
+          Profile={NavIcons.user}
+          bellicon={NavIcons.bellicon}
+          backicon={false}
+        />
+      ),
     }),
   },
+  // Share: {
+  //   screen: Share,
+  //   navigationOptions: ({navigation}, props) => ({
+  //     header: null,
+  //   }),
+  // },
+  // AboutScreen: {
+  //   screen: AboutUs,
+  //   navigationOptions: ({navigation}, props) => ({
+  //     header: null,
+  //   }),
+  // },
+});
+
+const ShareStack = createStackNavigator({
   Share: {
     screen: Share,
     navigationOptions: ({navigation}, props) => ({
       header: null,
     }),
   },
+});
+
+const AboutStack = createStackNavigator({
   AboutScreen: {
     screen: AboutUs,
     navigationOptions: ({navigation}, props) => ({
@@ -78,91 +107,72 @@ const Homestack = createStackNavigator({
   },
 });
 
-// const ShareStack = createStackNavigator({
-//   Share: {
-//     screen: Share,
-//     navigationOptions: ({navigation}, props) => ({
-//       header: null,
-//     }),
-//   },
-// });
+const bottomTabNavigator = createBottomTabNavigator(
+  {
+    HomeStack: {
+      screen: Homestack,
+      navigationOptions: ({navigation}) => ({
+        tabBarLabel: 'Home',
+        header: null,
+        gesturesEnabled: false,
+        tabBarIcon: ({focused, tintColor}) => (
+          <IconComponent
+            source={focused ? NavIcons.homeSelect : NavIcons.home}
+          />
+        ),
+      }),
+    },
+    ShareScreen: {
+      screen: ShareStack,
+      navigationOptions: ({navigation}) => ({
+        tabBarLabel: 'Share',
+        header: null,
+        gesturesEnabled: false,
+        tabBarIcon: ({focused, tintColor}) => (
+          <IconComponent
+            source={focused ? NavIcons.ShareSelect : NavIcons.share}
+          />
+        ),
+      }),
+    },
+    AboutScreen: {
+      screen: AboutStack,
+      navigationOptions: ({navigation}) => ({
+        tabBarLabel: 'About Us',
+        header: null,
+        gesturesEnabled: false,
+        tabBarIcon: ({focused, tintColor}) => (
+          <IconComponent
+            source={focused ? NavIcons.contactusSelect : NavIcons.contactus}
+          />
+        ),
+      }),
+    },
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'rgb(18, 18, 18)',
+      inactiveTintColor: 'rgb(140,140,140)',
+      fontWeight: '700',
+      showIcon: true,
+      showLabel: true,
+      style: {
+        // backgroundColor: 'white',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+      },
+    },
+  },
+);
 
-// const AboutStack = createStackNavigator({
-//   AboutScreen: {
-//     screen: AboutUs,
-//     navigationOptions: ({navigation}, props) => ({
-//       header: null,
-//     }),
-//   },
-// });
-
-// const bottomTabNavigator = createBottomTabNavigator(
-//   {
-//     // HomeStack: {
-//     //   screen: Homestack,
-//     //   navigationOptions: ({navigation}) => ({
-//     //     tabBarLabel: 'Home',
-//     //     header: null,
-//     //     gesturesEnabled: false,
-//     //     tabBarIcon: ({focused, tintColor}) => (
-//     //       <IconComponent
-//     //         source={focused ? NavIcons.homeSelect : NavIcons.home}
-//     //       />
-//     //     ),
-//     //   }),
-//     // },
-//     // ShareScreen: {
-//     //   screen: ShareStack,
-//     //   navigationOptions: ({navigation}) => ({
-//     //     tabBarLabel: 'Share',
-//     //     header: null,
-//     //     gesturesEnabled: false,
-//     //     tabBarIcon: ({focused, tintColor}) => (
-//     //       <IconComponent
-//     //         source={focused ? NavIcons.ShareSelect : NavIcons.share}
-//     //       />
-//     //     ),
-//     //   }),
-//     // },
-//     // AboutScreen: {
-//     //   screen: AboutStack,
-//     //   navigationOptions: ({navigation}) => ({
-//     //     tabBarLabel: 'About Us',
-//     //     header: null,
-//     //     gesturesEnabled: false,
-
-//     //     tabBarIcon: ({focused, tintColor}) => (
-//     //       <IconComponent
-//     //         source={focused ? NavIcons.contactusSelect : NavIcons.contactus}
-//     //       />
-//     //     ),
-//     //   }),
-//     // },
-//   },
-//   {
-//     tabBarOptions: {
-//       activeTintColor: 'rgb(18, 18, 18)',
-//       inactiveTintColor: 'rgb(140,140,140)',
-//       fontWeight: '700',
-//       showIcon: true,
-//       showLabel: true,
-//       style: {
-//         // backgroundColor: 'white',
-//         borderTopLeftRadius: 30,
-//         borderTopRightRadius: 30,
-//       },
-//     },
-//   },
-// );
-
-// const NewStack = createStackNavigator({
-//   HomeStack: {
-//     screen: bottomTabNavigator,
-//     navigationOptions: {
-//       header: null,
-//     },
-//   },
-// });
+const NewStack = createStackNavigator({
+  HomeStack: {
+    screen: bottomTabNavigator,
+    navigationOptions: {
+      header: null,
+    },
+  },
+});
 
 const Switchnavigator = createSwitchNavigator(
   {
@@ -170,7 +180,7 @@ const Switchnavigator = createSwitchNavigator(
       screen: Authstack,
     },
     HomeScreen: {
-      screen: Homestack,
+      screen: NewStack,
     },
   },
   {

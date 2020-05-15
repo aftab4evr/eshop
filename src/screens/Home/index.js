@@ -77,7 +77,7 @@ class Home extends Component {
           style={{
             marginLeft: wp('2%'),
             width: wp('65%'),
-            height: hp('10%'),
+            height: hp('9%'),
             backgroundColor: 'white',
             flexDirection: 'row',
             borderBottomColor: 'gray',
@@ -87,7 +87,7 @@ class Home extends Component {
           <View
             style={{
               flexDirection: 'column',
-              height: hp('10%'),
+              height: hp('9%'),
               width: wp('70%'),
               backgroundColor: 'white',
               borderBottomColor: 'gray',
@@ -97,20 +97,26 @@ class Home extends Component {
               <Text
                 style={{
                   marginLeft: wp('2%'),
-                  marginTop: hp('1%'),
+                  marginTop: hp('2%'),
                   fontWeight: '700',
                   fontSize: 16,
                 }}>
                 {item.name}
               </Text>
             </View>
-            <View style={{flexDirection: 'row', marginTop: hp('2%')}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'flex-end',
+                alignSelf: 'baseline',
+                marginTop: hp('1%'),
+              }}>
               <Text
                 style={{
-                  marginTop: hp('1%'),
+                  // marginTop: hp('1%'),
                   marginLeft: wp('2%'),
-                  fontSize: 16,
-                  fontWeight: '700',
+                  fontSize: 15,
+                  fontWeight: '500',
                 }}>
                 {item.area}
               </Text>
@@ -279,10 +285,10 @@ class Home extends Component {
           </View>
           <View
             style={{
-              height: hp('100%'),
+              height: hp('60%'),
               width: wp('100%'),
               backgroundColor: 'white',
-              // marginTop: hp('1%'),
+              // marginBottom: hp('3%'),
             }}>
             <FlatList
               showsHorizontalScrollIndicator={false}

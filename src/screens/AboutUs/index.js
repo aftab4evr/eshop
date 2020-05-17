@@ -37,122 +37,75 @@ class AboutUS extends Component {
                 alignItems: 'center',
                 marginTop: hp('10%'),
               }}>
-              <View
-                style={{
-                  justifyContent: 'space-evenly',
-                  alignItems: 'center',
-                  // backgroundColor: 'red',
-                }}>
-                <View
-                  style={{
-                    marginTop: hp('12%'),
-                    height: 100,
-                    width: 100,
-                    backgroundColor: '#59b199',
-                    borderRadius: 100 / 2,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginBottom: hp('6%'),
-                  }}>
-                  <Image
-                    resizeMode="contain"
-                    source={icon.camera}
+              <View>
+                <View style={style.cardView}>
+                  <View
                     style={{
-                      width: 50,
-                      height: 50,
-                      borderRadius: 50 / 2,
-                    }}
-                  />
-                </View>
-                <View>
-                  <View style={style.cardView}>
-                    <Text
+                      marginTop: hp('-5%'),
+                      height: 100,
+                      width: 100,
+                      backgroundColor: '#59b199',
+                      borderRadius: 100 / 2,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <Image
+                      resizeMode="contain"
+                      source={icon.camera}
                       style={{
-                        fontSize: 25,
-                        fontWeight: '700',
-                        paddingTop: hp('2%'),
-                        marginTop: hp('5%'),
-                      }}>
-                      Prakrika Technology(P)Ltd
-                    </Text>
-                    <Text
-                      style={{fontSize: 25, color: 'gray', fontWeight: '700'}}>
-                      Bhubaneswar
-                    </Text>
+                        width: 50,
+                        height: 50,
+                        borderRadius: 50 / 2,
+                      }}
+                    />
                   </View>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: '700',
+                      // paddingTop: hp('2%'),
+                      // marginTop: hp('5%'),
+                    }}>
+                    Prakrika Technology(P)Ltd
+                  </Text>
+                  <Text
+                    style={{fontSize: 25, color: 'gray', fontWeight: '700'}}>
+                    Bhubaneswar
+                  </Text>
                 </View>
               </View>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: wp('100%'),
-                alignItems: 'center',
-                alignContent: 'space-between',
-                alignSelf: 'center',
-                justifyContent: 'center',
-                marginTop: hp('1%'),
-              }}>
-              <TouchableOpacity>
-                <View style={style.cardViewtwo}>
-                  <Image
-                    style={{
-                      height: hp('6%'),
-                      width: wp('12%'),
-                      marginTop: hp('1%'),
-                    }}
-                    source={icon.facebook}
-                  />
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: '700',
-                      marginTop: hp('1%'),
-                    }}>
-                    Title
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <View style={style.cardViewtwo}>
-                  <Image
-                    style={{
-                      height: hp('6%'),
-                      width: wp('12%'),
-                      marginTop: hp('1%'),
-                    }}
-                    source={icon.whatsapp}
-                  />
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: '700',
-                      marginTop: hp('1%'),
-                    }}>
-                    Title
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <View style={style.cardViewtwo}>
-                  <Image
-                    style={{
-                      height: hp('6%'),
-                      width: wp('12%'),
-                      marginTop: hp('1%'),
-                    }}
-                    source={icon.email}
-                  />
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: '700',
-                      marginTop: hp('1%'),
-                    }}>
-                    Title
-                  </Text>
-                </View>
-              </TouchableOpacity>
+            <View style={style.ShareCardView}>
+              <View style={style.cardViewtwo}>
+                <Image
+                  style={{
+                    height: hp('7%'),
+                    width: wp('14%'),
+                    marginTop: hp('1.5%'),
+                  }}
+                  source={icon.facebook}
+                />
+              </View>
+              <View style={style.cardViewtwo}>
+                <Image
+                  style={{
+                    height: hp('7%'),
+                    width: wp('14%'),
+                    marginTop: hp('1.5%'),
+                  }}
+                  source={icon.whatsapp}
+                />
+              </View>
+              <View style={style.cardViewtwo}>
+                <Image
+                  style={{
+                    height: hp('7%'),
+                    width: wp('14%'),
+                    marginTop: hp('1.5%'),
+                  }}
+                  source={icon.email}
+                />
+              </View>
             </View>
           </View>
         </SafeAreaView>
@@ -169,13 +122,12 @@ const style = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'gray',
     width: wp('100%'),
-    height: hp('20%'),
+    height: hp('15%'),
     borderRadius: 15,
-    // backgroundColor: '#ffffff',
+    backgroundColor: '#ffffff',
   },
   cardViewtwo: {
     flexDirection: 'column',
-    marginTop: hp('12%'),
     shadowOffset: {height: 7},
     shadowRadius: 5,
     alignItems: 'center',
@@ -183,10 +135,26 @@ const style = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderWidth: 0.5,
     borderColor: 'gray',
-    width: wp('30%'),
+    width: wp('28%'),
     height: hp('12%'),
     borderRadius: 15,
     marginLeft: wp('2%'),
+  },
+  ShareCardView: {
+    flexDirection: 'row',
+    marginTop: hp('2%'),
+    height: hp('20%'),
+    width: wp('100%'),
+    alignItems: 'center',
+    alignContent: 'space-between',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    shadowOffset: {height: 7},
+    shadowRadius: 5,
+    backgroundColor: 'white',
+    borderWidth: 0.5,
+    borderColor: 'gray',
+    borderRadius: 15,
   },
 });
 export default AboutUS;

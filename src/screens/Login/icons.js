@@ -8,6 +8,7 @@ export default Icons = {
   loginIcon: require(`${path}icon.jpeg`),
   call: require(`${path}call.png`),
   item: require(`${path}item.jpg`),
+  camera: require(`${path}Camera.webp`),
 
   storenearme: require(`${path}storenearme.png`),
 };

@@ -31,7 +31,7 @@ export default {
   tab1Icon: require(path + 'tab1_icon/tab1_icon.png'),
   home: require(path + 'Home/home.png'),
   homeSelect: require(path + 'Home/home-select.png'),
-  Share: require(path + 'Share/unshare.png'),
+  ShareIcon: require(path + 'Share/share.png'),
   ShareSelect: require(path + 'Share/share-select.png'),
   contactusSelect: require(path + 'Contactus/contactusSelect.png'),
   contactus: require(path + 'Contactus/contactus.png'),
@@ -65,7 +65,7 @@ export default {
 };
 
 //Icon Component
-export const IconComponent = (props) => {
+export const IconComponent = props => {
   let size = props.Size ? props.Size : wp('8%');
   return (
     <View style={[styles.ImageView, {}]}>

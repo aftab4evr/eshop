@@ -72,7 +72,7 @@ class Home extends Component {
                 style={{width: wp('100%'), height: hp('24%')}}
               />
             </View>
-            <View style={{height: hp('55%'), marginTop: hp('2%')}}>
+            <View style={{height: hp('56%'), marginTop: hp('2%')}}>
               <FlatList
                 showsHorizontalScrollIndicator={true}
                 data={this.state.itemList}

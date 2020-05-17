@@ -130,7 +130,7 @@ const bottomTabNavigator = createBottomTabNavigator(
         gesturesEnabled: false,
         tabBarIcon: ({focused, tintColor}) => (
           <IconComponent
-            source={focused ? NavIcons.ShareSelect : NavIcons.share}
+            source={focused ? NavIcons.ShareSelect : NavIcons.ShareIcon}
           />
         ),
       }),

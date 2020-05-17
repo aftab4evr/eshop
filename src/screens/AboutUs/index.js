@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -14,7 +14,7 @@ import {
 } from 'react-native-responsive-screen';
 import icon from '../Login/icons';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 class AboutUS extends Component {
   constructor(props) {
@@ -24,30 +24,68 @@ class AboutUS extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{height: hp('100%'), width: wp('100%')}}>
         <SafeAreaView>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Image
-              resizeMode="contain"
-              source={icon.camera}
+          {/* <ScrollView showsVerticalScrollIndicator={false}> */}
+          <View
+            style={{
+              height: hp('15%'),
+              width: wp('100%'),
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: hp('10%'),
+            }}>
+            <View
               style={{
-                width: wp('55%'),
-                height: hp('10%'),
-                borderRadius: 50 / 2,
-              }}
-            />
-            <View style={style.cardView}>
-              <Text style={{ fontSize: 25, fontWeight: '700', paddingTop: hp('2%') }}>Prakrika Technology(P)Ltd</Text>
-              <Text style={{ fontSize: 25, color: 'gray', fontWeight: '700' }}>Bhubaneswar</Text>
+                justifyContent: 'space-evenly',
+                alignItems: 'center',
+                // backgroundColor: 'red',
+              }}>
+              <View
+                style={{
+                  marginTop: hp('12%'),
+                  height: 100,
+                  width: 100,
+                  backgroundColor: '#59b199',
+                  borderRadius: 100 / 2,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginBottom: hp('6%'),
+                }}>
+                <Image
+                  resizeMode="contain"
+                  source={icon.camera}
+                  style={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: 50 / 2,
+                  }}
+                />
+              </View>
+              <View>
+                <View style={style.cardView}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: '700',
+                      paddingTop: hp('2%'),
+                      marginTop: hp('5%'),
+                    }}>
+                    Prakrika Technology(P)Ltd
+                  </Text>
+                  <Text
+                    style={{fontSize: 25, color: 'gray', fontWeight: '700'}}>
+                    Bhubaneswar
+                  </Text>
+                </View>
+              </View>
             </View>
-            <View style={style.cardViewtwo}>
-            </View>
-            <View style={style.cardViewthree}>
-            </View>
-            <View style={style.cardViewfour}>
+          </View>
 
-            </View>
-          </ScrollView>
+          {/* <View style={style.cardViewtwo} />
+            <View style={style.cardViewthree} />
+            <View style={style.cardViewfour} /> */}
+          {/* </ScrollView> */}
         </SafeAreaView>
       </View>
     );
@@ -55,23 +93,20 @@ class AboutUS extends Component {
 }
 const style = StyleSheet.create({
   cardView: {
-    // marginTop: hp('2%'),
-    shadowOffset: { height: 7 },
+    shadowOffset: {height: 7},
     shadowRadius: 5,
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: '#ffffff',
     borderWidth: 0.5,
     borderColor: 'gray',
     width: wp('100%'),
     height: hp('20%'),
-    paddingBottom: hp('9%'),
-    marginTop: wp('35%'),
     borderRadius: 15,
+    // backgroundColor: '#ffffff',
   },
   cardViewtwo: {
     // marginTop: hp('2%'),
-    shadowOffset: { height: 7 },
+    shadowOffset: {height: 7},
     shadowRadius: 5,
     alignItems: 'center',
     alignSelf: 'center',
@@ -86,7 +121,7 @@ const style = StyleSheet.create({
   },
   cardViewfour: {
     // marginTop: hp('2%'),
-    shadowOffset: { height: 7 },
+    shadowOffset: {height: 7},
     shadowRadius: 5,
     alignItems: 'center',
     alignSelf: 'center',
@@ -101,7 +136,7 @@ const style = StyleSheet.create({
   },
   cardViewthree: {
     // marginTop: hp('2%'),
-    shadowOffset: { height: 7 },
+    shadowOffset: {height: 7},
     shadowRadius: 5,
     alignItems: 'center',
     alignSelf: 'center',

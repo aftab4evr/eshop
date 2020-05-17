@@ -51,15 +51,16 @@ class Login extends Component {
     }
   }
   handelLogin() {
-    console.log('handelLogin', this.state.isPhoneValid);
-    this.setState({isLoading: true});
+    console.log('>>>>>>>>', this.state.isPhoneValid);
 
     let data = {
       code: '+91',
       mobile: '7278737088',
     };
-    if (this.state.isPhoneValid == true) {
-      ApiRequest(data, '/login', 'POST').then((response) => {
+    if (this.state.isPhoneValid === true) {
+      this.setState({isLoading: true});
+
+      ApiRequest(data, '/login', 'POST').then(response => {
         console.log('response', response);
         switch (response.status) {
           case 900: {
@@ -111,6 +112,8 @@ class Login extends Component {
             break;
         }
       });
+    } else {
+      console.log('FALSE');
     }
   }
   handlevalidate(text) {
@@ -137,8 +140,16 @@ class Login extends Component {
           <SafeAreaView>
             <ScrollView showsVerticalScrollIndicator={false}>
               <View style={style.ImageContainer}>
-                <Image style={style.StoreStyle} source={icon.storenearme} />
-                <Image style={style.ImageStyle} source={icon.loginIcon} />
+                <Image
+                  style={style.StoreStyle}
+                  source={icon.storenearme}
+                  resizeMode="contain"
+                />
+                <Image
+                  style={style.ImageStyle}
+                  source={icon.loginIcon}
+                  resizeMode="contain"
+                />
               </View>
               <View>
                 <Text style={style.TextStyle}>Get started</Text>
@@ -155,9 +166,8 @@ class Login extends Component {
                     borderRadius: 5,
                     borderColor: 'black',
                     width: wp('22%'),
-                    // backgroundColor: 'white',
                   }}>
-                  <Text style={{}}>+91</Text>
+                  <Text>+91</Text>
                 </View>
                 <CustomTextInput
                   MyPlaceholder="Your phone number*"
@@ -173,10 +183,10 @@ class Login extends Component {
                   }}
                   value={this.state.phoneNumber}
                   keyboardType="number-pad"
-                  onChangeText={(text) => this.handlevalidate(text)}
+                  onChangeText={text => this.handlevalidate(text)}
                   ErrorText={this.state.phoneError}
                   returnKeyType="done"
-                  InputRef={(input) => (this.phone = input)}
+                  InputRef={input => (this.phone = input)}
                   maxLength={10}
                 />
               </View>
@@ -185,7 +195,7 @@ class Login extends Component {
                   We will send you OTP on this number
                 </Text>
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{flexDirection: 'row', alignItems: 'center',marginLeft:hp('1%')}}>
                 <SubmitButton
                   submitOnpress={() => this.handelLogin()}
                   Size={'small'}
@@ -255,7 +265,7 @@ const style = StyleSheet.create({
     marginTop: hp('-1%'),
     color: 'gray',
     fontSize: 15,
-    marginLeft: wp('7%'),
+    marginLeft: wp('8%'),
     marginBottom: hp('2%'),
   },
   ModalMainContainer: {
@@ -283,22 +293,22 @@ const style = StyleSheet.create({
   },
   GooglePlusStyle: {
     flexDirection: 'row',
-    backgroundColor: '#05CB18',
+    backgroundColor: 'black',
     borderWidth: 1,
-    borderColor: '#05CB18',
+    borderColor: 'gray',
     height: wp('10%'),
     width: wp('46%'),
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: wp('2%'),
+    marginLeft: wp('.5%'),
   },
   SeparatorLine: {
     backgroundColor: '#fff',
     height: 40,
   },
   WhatsapTextStyle: {
-    color: 'green',
+    color: 'white',
     marginBottom: 15,
     fontSize: 14,
     marginRight: 20,

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   HomeHeaderBackgroundStyle: {
     width: wp('100%'),
-    height: hp('8%'),
+    height: hp('10%'),
     flexDirection: 'column',
   },
 });

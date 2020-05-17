@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export const SubmitButton = (props) => {
     let standardSize =
         props.Size === 'medium'
-            ? wp('83%')
+            ? wp('80%')
             : props.Size === 'small'
                 ? wp('40%')
                 : wp('60%');
@@ -196,8 +196,8 @@ const styles = StyleSheet.create({
     MainButtonContainer: {
         height: wp('2%'),
         width: wp('5%'),
-        backgroundColor: '#FFFFFF',
-        borderColor: '#05CB18',
+        backgroundColor: 'black',
+        borderColor: 'gray',
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
@@ -205,18 +205,19 @@ const styles = StyleSheet.create({
 
     },
     OtpButtonContainer: {
-        backgroundColor: 'green',
+        backgroundColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: wp('6%')
     },
     OtpButtonText: {
         fontWeight: '700',
+        color:'white'
     },
 
     ButtonText: {
         fontWeight: '900',
-        color: '#05CB18',
+        color: 'white',
     },
 
 });

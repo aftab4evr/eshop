@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  Share,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -25,10 +26,14 @@ class AboutUS extends Component {
 
   render() {
     return (
-      <View>
-        <SafeAreaView>
-          {/* <ScrollView showsVerticalScrollIndicator={false}> */}
-          <View style={{height: hp('100%'), width: wp('100%')}}>
+      <View style={style.container}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View
+            style={{
+              height: hp('100%'),
+              width: wp('100%'),
+              marginTop: hp('8%'),
+            }}>
             <View
               style={{
                 height: hp('15%'),
@@ -63,8 +68,7 @@ class AboutUS extends Component {
                     style={{
                       fontSize: 25,
                       fontWeight: '700',
-                      // paddingTop: hp('2%'),
-                      // marginTop: hp('5%'),
+                      marginTop: hp('3%'),
                     }}>
                     Prakrika Technology(P)Ltd
                   </Text>
@@ -76,44 +80,78 @@ class AboutUS extends Component {
               </View>
             </View>
             <View style={style.ShareCardView}>
-              <View style={style.cardViewtwo}>
-                <Image
-                  style={{
-                    height: hp('7%'),
-                    width: wp('14%'),
-                    marginTop: hp('1.5%'),
-                  }}
-                  source={icon.facebook}
-                />
+              <View>
+                <Text style={{fontSize: 24, fontWeight: '700'}}>
+                  Things to be in connect.
+                </Text>
               </View>
-              <View style={style.cardViewtwo}>
-                <Image
-                  style={{
-                    height: hp('7%'),
-                    width: wp('14%'),
-                    marginTop: hp('1.5%'),
-                  }}
-                  source={icon.whatsapp}
-                />
-              </View>
-              <View style={style.cardViewtwo}>
-                <Image
-                  style={{
-                    height: hp('7%'),
-                    width: wp('14%'),
-                    marginTop: hp('1.5%'),
-                  }}
-                  source={icon.email}
-                />
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: hp('6%'),
+                }}>
+                <View style={style.cardViewtwo}>
+                  <TouchableOpacity>
+                    <Image
+                      style={{
+                        height: hp('7%'),
+                        width: wp('14%'),
+                        marginTop: hp('2.3%'),
+                      }}
+                      source={icon.facebook}
+                    />
+                  </TouchableOpacity>
+                </View>
+                <View style={style.cardViewtwo}>
+                  <TouchableOpacity>
+                    <Image
+                      style={{
+                        height: hp('7%'),
+                        width: wp('14%'),
+                        marginTop: hp('2.3%'),
+                      }}
+                      source={icon.whatsapp}
+                    />
+                  </TouchableOpacity>
+                </View>
+                <View style={style.cardViewtwo}>
+                  <TouchableOpacity>
+                    <Image
+                      style={{
+                        height: hp('7%'),
+                        width: wp('14%'),
+                        marginTop: hp('2.3%'),
+                      }}
+                      source={icon.email}
+                    />
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
+            <View style={style.AboutcardView}>
+              <Image
+                resizeMode="contain"
+                style={{
+                  height: hp('12%'),
+                  width: wp('100%'),
+                  marginTop: hp('2.3%'),
+                }}
+                source={icon.about}
+              />
+            </View>
           </View>
-        </SafeAreaView>
+        </ScrollView>
       </View>
     );
   }
 }
 const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'rgb( 247, 249, 251)',
+    marginTop: hp('0%'),
+  },
   cardView: {
     shadowOffset: {height: 7},
     shadowRadius: 5,
@@ -122,7 +160,7 @@ const style = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'gray',
     width: wp('100%'),
-    height: hp('15%'),
+    height: hp('22%'),
     borderRadius: 15,
     backgroundColor: '#ffffff',
   },
@@ -138,15 +176,15 @@ const style = StyleSheet.create({
     width: wp('28%'),
     height: hp('12%'),
     borderRadius: 15,
-    marginLeft: wp('2%'),
+    marginHorizontal: wp('1.5%'),
   },
   ShareCardView: {
-    flexDirection: 'row',
-    marginTop: hp('2%'),
-    height: hp('20%'),
+    flexDirection: 'column',
+    marginTop: hp('5%'),
+    height: hp('30%'),
     width: wp('100%'),
     alignItems: 'center',
-    alignContent: 'space-between',
+    // alignContent: 'space-between',
     alignSelf: 'center',
     justifyContent: 'center',
     shadowOffset: {height: 7},
@@ -155,6 +193,23 @@ const style = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'gray',
     borderRadius: 15,
+    marginVertical: wp('1%'),
+  },
+  AboutcardView: {
+    flexDirection: 'column',
+    marginTop: hp('1%'),
+    height: hp('20%'),
+    width: wp('100%'),
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    shadowOffset: {height: 7},
+    shadowRadius: 5,
+    backgroundColor: 'white',
+    borderWidth: 0.5,
+    borderColor: 'gray',
+    borderRadius: 15,
+    marginVertical: wp('1%'),
   },
 });
 export default AboutUS;

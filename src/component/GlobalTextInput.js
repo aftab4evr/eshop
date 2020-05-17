@@ -6,7 +6,7 @@ import {
 } from 'react-native-responsive-screen';
 
 const {width, height} = Dimensions.get('window');
-export const CustomTextInput = (props) => {
+export const CustomTextInput = props => {
   return (
     <View
       style={[styles.TextInputMainContainer, props.InputFieldMainContainer]}>
@@ -36,7 +36,7 @@ export const CustomTextInput = (props) => {
   );
 };
 
-export const SearchTextInput = (props) => {
+export const SearchTextInput = props => {
   return (
     <View
       style={[styles.TextInputMainContainer, props.InputFieldMainContainer]}>

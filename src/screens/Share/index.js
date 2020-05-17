@@ -6,6 +6,7 @@ import {
   ScrollView,
   StyleSheet,
   Dimensions,
+  Share,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -13,12 +14,18 @@ import {
 } from 'react-native-responsive-screen';
 const {width, height} = Dimensions.get('window');
 
-class Share extends Component {
+class ShareScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
+  componentDidMount() {
+    Share.share({
+      message: 'hiiii',
+    })
+      .then(result => console.log(result))
+      .catch(errorMsg => console.log(errorMsg));
+  }
   render() {
     return (
       <View>
@@ -33,7 +40,5 @@ class Share extends Component {
     );
   }
 }
-const style = StyleSheet.create({
-  
-});
-export default Share;
+const style = StyleSheet.create({});
+export default ShareScreen;

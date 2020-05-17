@@ -27,41 +27,12 @@ export default {
   //tab Icons
   chat: require('../assets/chat/chat.png'),
   selectChat: require('../assets/selectChat/chat.png'),
-
-  tab1Icon: require(path + 'tab1_icon/tab1_icon.png'),
+  contactus: require('../assets/Contactus/contactus.png'),
+  contactusSelect: require('../assets/Contactus/contactusSelect.png'),
   home: require(path + 'Home/home.png'),
   homeSelect: require(path + 'Home/home-select.png'),
   ShareIcon: require(path + 'Share/share.png'),
   ShareSelect: require(path + 'Share/share-select.png'),
-  contactusSelect: require(path + 'Contactus/contactusSelect.png'),
-  contactus: require(path + 'Contactus/contactus.png'),
-  tab1iconSel: require(path + 'tab1_icon/tab1Icon.png'),
-  tab2Icon: require(path + 'tab2_icon/tab2_icon.png'),
-  tab2iconSel: require(path + 'tab2_icon/tab2Icon.png'),
-  tab3Icon: require(path + 'tab3_icon/tab3_icon.png'),
-  tab3iconSel: require(path + 'tab3_icon/tab3Icon.png'),
-  tab4Icon: require(path + 'tab4_icon/tab4_icon.png'),
-  tab4iconSel: require(path + 'tab4_icon/tab4Icon.png'),
-  menuicon: require('../assets/images/menu_icon.png'),
-  backarrow: require('../assets/images/backarrow.png'),
-
-  backicon: require('../assets/images/backarrow_icon.png'),
-  bellicon: require('../assets/images/notification.png'),
-  Profile: require('../assets/images/profile_icon.png'),
-  Home: require('../assets/images/Home.png'),
-  shopbycategory: require('../assets/images/group2.png'),
-  mycart: require('../assets/images/layer7.png'),
-  setting: require('../assets/images/layer10.png'),
-  receipthistory: require('../assets/images/layer4.png'),
-  paymentdescription: require('../assets/images/layer3.png'),
-  orderhistory: require('../assets/images/order_icon.png'),
-  Productenquiry: require('../assets/images/layer9.png'),
-  logout: require('../assets/images/layer11.png'),
-  editicon: require('../assets/images/layer62.png'),
-  filtericon: require('../assets/images/filter_icon.png'),
-  user: require('../assets/images/user_icon.png'),
-
-  //back_arrow: require(path + 'back_arrow.png'),
 };
 
 //Icon Component

@@ -9,6 +9,8 @@ import {
   FlatList,
   ScrollView,
   Dimensions,
+  Linking,
+  Platform,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -24,37 +26,27 @@ class Home extends Component {
     super(props);
     this.state = {
       itemList: [
-        {title: "We're here for you", image: icon.amour},
-        {title: 'Pay once. Stay Twice', image: icon.item},
-        {title: "We're here for you", image: icon.amour},
+        {title: "We're here for you", image: icon.dynamic1},
+        {title: 'Pay once. Safe Twice', image: icon.dynamic2},
       ],
     };
   }
   async componentDidMount() {}
 
-  renderList(item, index) {
-    return (
-      <View
-        style={{
-          height: hp('24%'),
-          flexDirection: 'column',
-          marginBottom: hp('3%'),
-        }}>
-        <Text style={style.TextStyle}>{item.title}</Text>
-        <View style={style.cardView}>
-          <Image
-            resizeMode="contain"
-            source={item.image}
-            style={{
-              width: wp('85%'),
-              height: hp('20%'),
-              borderRadius: 50 / 2,
-            }}
-          />
-        </View>
-      </View>
-    );
-  }
+  dialCall = () => {
+    let phoneNumber = '';
+    if (Platform.OS === 'android') {
+      phoneNumber = 'tel:${1234567890}';
+    } else {
+      phoneNumber = 'telprompt:${1234567890}';
+    }
+
+    Linking.openURL(phoneNumber);
+  };
+  sendMessageToWhatsApp = () => {
+    Linking.openURL('whatsapp://send?text=hello');
+  };
+
   render() {
     return (
       <View style={{backgroundColor: '#f8f9fe', height: hp('100%')}}>
@@ -67,18 +59,130 @@ class Home extends Component {
                 paddingVertical: wp('2%'),
               }}>
               <Image
-                resizeMode="contain"
-                source={icon.amour}
+                // resizeMode="contain"
+                source={icon.homestatic}
                 style={{width: wp('100%'), height: hp('24%')}}
               />
             </View>
             <View style={{height: hp('56%'), marginTop: hp('2%')}}>
-              <FlatList
-                showsHorizontalScrollIndicator={true}
-                data={this.state.itemList}
-                renderItem={({item, index}) => this.renderList(item, index)}
-                keyExtractor={(item) => item.id}
-              />
+              <ScrollView>
+                <View
+                  style={{
+                    height: hp('27%'),
+                    flexDirection: 'column',
+                  }}>
+                  <Text style={style.TextStyle}>
+                    {this.state.itemList[0].title}
+                  </Text>
+                  <View style={style.cardView}>
+                    <View
+                      style={{
+                        width: wp('85%'),
+                        height: hp('18%'),
+                        borderBottomLeftRadius: 30,
+                        borderBottomRightRadius: 30,
+                        borderTopRightRadius: 30,
+                        borderTopLeftRadius: 30,
+                      }}>
+                      <Image
+                        source={this.state.itemList[0].image}
+                        style={{
+                          width: wp('85%'),
+                          height: hp('18%'),
+                        }}
+                      />
+                    </View>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'flex-end',
+                        marginLeft: wp('-46%'),
+                        marginTop: hp('-1.7%'),
+                      }}>
+                      <TouchableOpacity
+                        onPress={() => this.sendMessageToWhatsApp()}>
+                        <Image
+                          style={{
+                            height: hp('3%'),
+                            width: wp('6%'),
+                            marginLeft: wp('7'),
+
+                          }}
+                          source={icon.homewhatsapp}
+                        />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => this.dialCall()}>
+                        <Image
+                          style={{
+                            height: hp('3%'),
+                            width: wp('6%'),
+                            marginLeft: wp('4%'),
+                          }}
+                          source={icon.homewhatsappcall}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={{
+                    height: hp('27%'),
+                    flexDirection: 'column',
+                  }}>
+                  <Text style={style.TextStyle}>
+                    {this.state.itemList[1].title}
+                  </Text>
+                  <View style={style.cardView}>
+                    <View
+                      style={{
+                        width: wp('85%'),
+                        height: hp('18%'),
+                        borderBottomLeftRadius: 30,
+                        borderBottomRightRadius: 30,
+                        borderTopRightRadius: 30,
+                        borderTopLeftRadius: 30,
+                      }}>
+                      <Image
+                        source={this.state.itemList[1].image}
+                        style={{
+                          width: wp('85%'),
+                          height: hp('18%'),
+                        }}
+                      />
+                    </View>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'flex-end',
+                        marginLeft: wp('65%'),
+                        marginTop: hp('-17%'),
+                      }}>
+                      <TouchableOpacity
+                        onPress={() => this.sendMessageToWhatsApp()}>
+                        <Image
+                          style={{
+                            height: hp('3%'),
+                            width: wp('6%'),
+                            marginLeft: wp('-2%'),
+
+                          }}
+                          source={icon.homewhatsapp}
+                        />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => this.dialCall()}>
+                        <Image
+                          style={{
+                            height: hp('3%'),
+                            width: wp('6%'),
+                            marginLeft: wp('5%'),
+                          }}
+                          source={icon.homewhatsappcall}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
+              </ScrollView>
             </View>
           </View>
         </SafeAreaView>
@@ -89,7 +193,6 @@ class Home extends Component {
 
 const style = StyleSheet.create({
   cardView: {
-    // marginTop: hp('2%'),
     shadowOpacity: 2,
     shadowOffset: {width: 0.2, height: 0.1},
     shadowRadius: 5,
@@ -99,10 +202,10 @@ const style = StyleSheet.create({
     borderWidth: 0.3,
     borderColor: 'gray',
     width: wp('90%'),
+    height: hp('22%'),
     paddingTop: hp('1%'),
   },
   TextStyle: {
-    // marginTop: hp('2%'),
     marginVertical: hp('2%'),
     fontSize: 15,
     fontWeight: '700',

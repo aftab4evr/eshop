@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Dimensions,
+  Share as sh,
 } from 'react-native';
 import React, {Component, useState} from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
@@ -133,6 +134,13 @@ const bottomTabNavigator = createBottomTabNavigator(
             source={focused ? NavIcons.ShareSelect : NavIcons.ShareIcon}
           />
         ),
+        tabBarOnPress: () => {
+          sh.share({
+            message: 'This is testing.',
+          })
+            .then(result => console.log(result))
+            .catch(errorMsg => console.log(errorMsg));
+        },
       }),
     },
     AboutScreen: {

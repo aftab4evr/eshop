@@ -46,7 +46,7 @@ class Otp extends Component {
     this.setState({
       isLoading: true,
     });
-    ApiRequest('', `/resend-otp/${this.state.uuid}`, 'GET').then((response) => {
+    ApiRequest('', `/resend-otp/${this.state.uuid}`, 'GET').then(response => {
       console.log('response', response);
       switch (response.status) {
         case 900: {
@@ -144,7 +144,7 @@ class Otp extends Component {
         this.state.phoneOTP4,
     };
     console.log(data);
-    ApiRequest(data, '/verify-otp', 'POST').then((response) => {
+    ApiRequest(data, '/verify-otp', 'POST').then(response => {
       console.log('response', response);
       switch (response.status) {
         case 900: {
@@ -169,7 +169,7 @@ class Otp extends Component {
                 {
                   text: 'OK',
                   onPress: () => {
-                    this.props.navigation.navigate('Homestack', {
+                    this.props.navigation.navigate('HomeScreen', {
                       data: response.data,
                     });
                   },
@@ -221,12 +221,12 @@ class Otp extends Component {
                     ]}
                     autoFocus={true}
                     maxLength={1}
-                    ref={(input) => {
+                    ref={input => {
                       this.phoneOTP1 = input;
                     }}
                     keyboardType="numeric"
                     returnKeyType="next"
-                    onChangeText={(text) =>
+                    onChangeText={text =>
                       this.handleInput(
                         text,
                         'phoneOTP',
@@ -253,7 +253,7 @@ class Otp extends Component {
                     autoFocus={true}
                     maxLength={1}
                     keyboardType="numeric"
-                    onChangeText={(text) =>
+                    onChangeText={text =>
                       this.handleInput(
                         text,
                         'phoneOTP',
@@ -265,14 +265,13 @@ class Otp extends Component {
                     onSubmitEditing={() => {
                       this.phoneOTP3.focus();
                     }}
-                    ref={(input) => {
+                    ref={input => {
                       this.phoneOTP2 = input;
                     }}
                     ErrorBorder={this.state.activephoneOTP2BorderError}
                     returnKeyType="next"
                     secureTextEntry={true}
                   />
-
                   <TextInput
                     style={[
                       style.OtpTextInput,
@@ -285,7 +284,7 @@ class Otp extends Component {
                     autoFocus={true}
                     maxLength={1}
                     keyboardType="numeric"
-                    onChangeText={(text) =>
+                    onChangeText={text =>
                       this.handleInput(
                         text,
                         'phoneOTP',
@@ -297,7 +296,7 @@ class Otp extends Component {
                     onSubmitEditing={() => {
                       this.phoneOTP4.focus();
                     }}
-                    ref={(input) => {
+                    ref={input => {
                       this.phoneOTP3 = input;
                     }}
                     ErrorBorder={this.state.activephoneOTP3BorderError}
@@ -317,7 +316,7 @@ class Otp extends Component {
                     autoFocus={true}
                     maxLength={1}
                     keyboardType="numeric"
-                    onChangeText={(text) =>
+                    onChangeText={text =>
                       this.handleInput(
                         text,
                         'phoneOTP',
@@ -326,7 +325,7 @@ class Otp extends Component {
                         this.phoneOTP4,
                       )
                     }
-                    ref={(input) => {
+                    ref={input => {
                       this.phoneOTP4 = input;
                     }}
                     ErrorBorder={this.state.activephoneOTP4BorderError}
@@ -446,7 +445,6 @@ const style = StyleSheet.create({
     fontWeight: '700',
     alignSelf: 'auto',
     marginLeft: wp('1%'),
-    // marginTop: hp('1%'),
     marginBottom: wp('12%'),
   },
   OtpSendText: {
@@ -461,7 +459,7 @@ const style = StyleSheet.create({
     color: 'black',
     fontSize: 16,
     marginLeft: wp('18%'),
-    color: '#CCCC00',
+    color: '#5a5a5a',
     fontWeight: '700',
   },
 });

@@ -16,7 +16,7 @@ export const Loader = ({visible, text, onRequestClose}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <ActivityIndicator size="large" color="green" />
+          <ActivityIndicator size="large" color="black" />
           <Text style={{fontSize: 18, marginLeft: 10, fontWeight: 'bold'}}>
             {text}
           </Text>

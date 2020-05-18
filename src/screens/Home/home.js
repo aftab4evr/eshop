@@ -97,7 +97,7 @@ class Home extends Component {
                         flexDirection: 'row',
                         justifyContent: 'flex-end',
                         marginLeft: wp('-46%'),
-                        marginTop: hp('-1.7%'),
+                        marginTop: hp('-0.5%'),
                       }}>
                       <TouchableOpacity
                         onPress={() => this.sendMessageToWhatsApp()}>
@@ -106,7 +106,6 @@ class Home extends Component {
                             height: hp('3%'),
                             width: wp('6%'),
                             marginLeft: wp('7'),
-
                           }}
                           source={icon.homewhatsapp}
                         />
@@ -155,7 +154,7 @@ class Home extends Component {
                         flexDirection: 'row',
                         justifyContent: 'flex-end',
                         marginLeft: wp('65%'),
-                        marginTop: hp('-17%'),
+                        marginTop: hp('-18.5%'),
                       }}>
                       <TouchableOpacity
                         onPress={() => this.sendMessageToWhatsApp()}>
@@ -164,7 +163,6 @@ class Home extends Component {
                             height: hp('3%'),
                             width: wp('6%'),
                             marginLeft: wp('-2%'),
-
                           }}
                           source={icon.homewhatsapp}
                         />

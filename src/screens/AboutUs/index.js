@@ -94,8 +94,8 @@ class AboutUS extends Component {
                   <TouchableOpacity>
                     <Image
                       style={{
-                        height: hp('7%'),
-                        width: wp('14%'),
+                        height: hp('6%'),
+                        width: wp('12%'),
                         marginTop: hp('2.3%'),
                       }}
                       source={icon.facebook}
